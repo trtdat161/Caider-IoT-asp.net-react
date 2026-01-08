@@ -1,0 +1,94 @@
+/* sidebar.css - Robot Futuristic Theme */
+
+:root {
+  --primary-cyan: #00f0ff;
+  --dark-bg: #0a0e17;
+  --glow-cyan: 0 0 15px rgba(0, 240, 255, 0.5);
+}
+
+.sidebar {
+  width: 280px; /* độ rộng sidebar */
+  background: linear-gradient(180deg, #0f172a, #0a0e17, #000);
+  border-right: 1px solid rgba(0, 240, 255, 0.3);
+  box-shadow: var(--glow-cyan);
+  transition: transform 0.4s ease-in-out;
+  z-index: 1050;
+}
+
+.sidebar-header {
+  border-bottom: 1px solid rgba(0, 240, 255, 0.3);
+  padding: 2rem 1.5rem; /* <-- Chỉnh padding header */
+}
+
+.robot-logo {
+  font-size: 3rem; /* <-- Chỉnh kích thước icon robot 🤖 */
+  color: var(--primary-cyan);
+  filter: drop-shadow(var(--glow-cyan));
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  color: #a5f3fc;
+  padding: 1rem 1.5rem; /* <-- Chỉnh padding từng mục menu */
+  margin: 0.5rem 1rem;
+  border-radius: 0.75rem;
+  border: 1px solid transparent;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.menu-item:hover {
+  background: rgba(0, 240, 255, 0.15);
+  color: white;
+  border-color: var(--primary-cyan);
+  transform: translateX(10px);
+  box-shadow: var(--glow-cyan);
+}
+
+.menu-item .icon {
+  font-size: 1.8rem; /* <-- Chỉnh kích thước icon mỗi mục */
+  width: 50px;
+  text-align: center;
+  color: var(--primary-cyan);
+}
+
+.overlay {
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 1040;
+}
+
+/* Mobile: ẩn sidebar */
+@media (max-width: 991.98px) {
+  .sidebar {
+    transform: translateX(-100%);
+  }
+  .sidebar.show {
+    transform: translateX(0);
+  }
+}
+
+/* Desktop: luôn hiện */
+@media (min-width: 992px) {
+  .sidebar {
+    transform: translateX(0) !important;
+  }
+}
+/* content sidebar đẻ tránh bị che mât */
+.content-manage {
+  padding-left: 290px;
+  padding-top: 10px;
+}
+@media (max-width: 991.98px) {
+  .content-manage {
+    padding-left: 5px;
+  }
+}
+/* Trạng thái active - giữ nguyên hiệu ứng hover */
+.menu-item.active {
+  background: rgba(0, 240, 255, 0.15) !important;
+  color: white !important;
+  border-color: var(--primary-cyan) !important;
+  transform: translateX(10px) !important;
+  box-shadow: var(--glow-cyan) !important;
+}

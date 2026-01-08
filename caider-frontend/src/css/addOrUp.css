@@ -1,0 +1,341 @@
+/* ============================================
+   ROBOT THEME - MICROCONTROLLER FORM
+   ============================================ */
+
+* {
+  box-sizing: border-box;
+}
+
+.robot-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #060c33 0%, #01268b 100%);
+  padding: 40px 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Animated Background Grid */
+.robot-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80%;
+  background-image: linear-gradient(
+      rgba(0, 255, 255, 0.03) 1px,
+      transparent 1px
+    ),
+    linear-gradient(90deg, rgba(0, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+  animation: gridMove 20s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes gridMove {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(50px, 50px);
+  }
+}
+
+/* ============================================
+   HEADER
+   ============================================ */
+
+.robot-header {
+  text-align: center;
+  margin-bottom: 40px;
+  position: relative;
+  z-index: 1;
+}
+
+.robot-icon {
+  font-size: 80px;
+  color: #00d9ff;
+  margin-bottom: 20px;
+  animation: float 3s ease-in-out infinite;
+  text-shadow: 0 0 30px rgba(0, 217, 255, 0.6);
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.robot-title {
+  font-size: 42px;
+  font-weight: 900;
+  color: #00d9ff;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  margin: 0;
+  text-shadow: 0 0 20px rgba(0, 217, 255, 0.5);
+}
+
+/* Glitch Effect */
+.glitch {
+  position: relative;
+  display: inline-block;
+}
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80%;
+}
+
+.glitch::before {
+  left: 2px;
+  text-shadow: -2px 0 #ff00de;
+  clip: rect(24px, 550px, 90px, 0);
+  animation: glitch-anim 3s infinite linear alternate-reverse;
+}
+
+.glitch::after {
+  left: -2px;
+  text-shadow: -2px 0 #00fff9;
+  clip: rect(85px, 550px, 140px, 0);
+  animation: glitch-anim 2s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-anim {
+  0% {
+    clip: rect(10px, 9999px, 31px, 0);
+  }
+  20% {
+    clip: rect(70px, 9999px, 71px, 0);
+  }
+  40% {
+    clip: rect(30px, 9999px, 91px, 0);
+  }
+  60% {
+    clip: rect(90px, 9999px, 111px, 0);
+  }
+  80% {
+    clip: rect(50px, 9999px, 51px, 0);
+  }
+  100% {
+    clip: rect(10px, 9999px, 131px, 0);
+  }
+}
+
+/* ============================================
+   FORM
+   ============================================ */
+
+.robot-form {
+  background: rgba(15, 23, 42, 0.8);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(0, 217, 255, 0.3);
+  border-radius: 20px;
+  padding: 40px;
+  max-width: 600px;
+  margin: 0 auto;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4),
+    inset 0 0 20px rgba(0, 217, 255, 0.05);
+  position: relative;
+  z-index: 1;
+}
+
+.input-group-robot {
+  margin-bottom: 30px;
+}
+
+.robot-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #00d9ff;
+  font-weight: 700;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 12px;
+}
+
+.robot-label i {
+  font-size: 18px;
+}
+
+/* Input Wrapper */
+.input-wrapper {
+  position: relative;
+}
+
+.robot-input {
+  background: rgba(10, 14, 39, 0.6) !important;
+  border: 2px solid rgba(0, 217, 255, 0.2) !important;
+  border-radius: 12px !important;
+  color: #fff !important;
+  padding: 14px 18px !important;
+  font-size: 15px !important;
+  transition: all 0.3s ease !important;
+  font-family: "Courier New", monospace;
+}
+
+.robot-input::placeholder {
+  color: #556b8a;
+  font-style: italic;
+}
+
+.robot-input:focus {
+  background: rgba(10, 14, 39, 0.9) !important;
+  border-color: #00d9ff !important;
+  box-shadow: 0 0 20px rgba(0, 217, 255, 0.3),
+    inset 0 0 10px rgba(0, 217, 255, 0.1) !important;
+  outline: none !important;
+}
+
+/* Animated Border Effect */
+.input-border {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #00d9ff, #ff00de);
+  transition: width 0.4s ease;
+}
+
+.robot-input:focus + .input-border {
+  width: 100%;
+}
+
+/* Textarea Specific */
+textarea.robot-input {
+  resize: vertical;
+  min-height: 120px;
+  line-height: 1.6;
+}
+
+/* ============================================
+   BUTTON
+   ============================================ */
+
+.robot-btn {
+  width: 100%;
+  background: linear-gradient(135deg, #00d9ff 0%, #7000ff 100%);
+  border: none;
+  border-radius: 12px;
+  padding: 16px 30px;
+  font-size: 16px;
+  font-weight: 800;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  margin-top: 20px;
+}
+
+.btn-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.btn-glow {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  transition: left 0.5s ease;
+}
+
+.robot-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(0, 217, 255, 0.4),
+    0 0 40px rgba(112, 0, 255, 0.3);
+}
+
+.robot-btn:hover .btn-glow {
+  left: 100%;
+}
+
+.robot-btn:active {
+  transform: translateY(-1px);
+}
+
+/* ============================================
+   TECH LINES DECORATION
+   ============================================ */
+
+.tech-lines {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.tech-lines span {
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #00d9ff, transparent);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.tech-lines span:nth-child(2) {
+  animation-delay: 0.3s;
+}
+
+.tech-lines span:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 768px) {
+  .robot-title {
+    font-size: 28px;
+    letter-spacing: 2px;
+  }
+
+  .robot-icon {
+    font-size: 60px;
+  }
+
+  .robot-form {
+    padding: 30px 20px;
+  }
+
+  .robot-btn {
+    font-size: 14px;
+    padding: 14px 20px;
+  }
+}
