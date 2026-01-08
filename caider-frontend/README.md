@@ -2,7 +2,7 @@
 
 ## Mô tả
 
-Đây là một ứng dụng IoT điều khiển robot và quản lý quản lý các phần cứng có trên robot. Như là quản lý microcontroller, motor, servo và expansive board. Frontend sử dụng React với Vite, backend là ASP.NET Core API, tích hợp MQTT để điều khiển robot qua thời gian thực.
+Đây là một ứng dụng IoT điều khiển robot và quản lý quản lý các phần cứng có trên robot. Như là quản lý microcontroller, motor, servo và expansive board. Frontend sử dụng React với Vite, backend là ASP.NET Core API, tích hợp MQTT Client kết nối đến broker để gửi/nhận lệnh điều khiển robot (near real-time)
 
 ## Công nghệ sử dụng
 
