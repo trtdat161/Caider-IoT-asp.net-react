@@ -1,0 +1,261 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\project-IoT\\Caider-backend\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{B39B0A3B-DD60-ABB5-7836-7BE133D819A6}|CaiderBackend\\CaiderBackend.csproj|d:\\project-iot\\caider-backend\\caiderbackend\\authentication\\jwt\\jwttokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B39B0A3B-DD60-ABB5-7836-7BE133D819A6}|CaiderBackend\\CaiderBackend.csproj|solutionrelative:caiderbackend\\authentication\\jwt\\jwttokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B39B0A3B-DD60-ABB5-7836-7BE133D819A6}|CaiderBackend\\CaiderBackend.csproj|d:\\project-iot\\caider-backend\\caiderbackend\\authentication\\jwt\\jwtoption.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B39B0A3B-DD60-ABB5-7836-7BE133D819A6}|CaiderBackend\\CaiderBackend.csproj|solutionrelative:caiderbackend\\authentication\\jwt\\jwtoption.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B39B0A3B-DD60-ABB5-7836-7BE133D819A6}|CaiderBackend\\CaiderBackend.csproj|d:\\project-iot\\caider-backend\\caiderbackend\\authentication\\jwt\\jwtserviceextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B39B0A3B-DD60-ABB5-7836-7BE133D819A6}|CaiderBackend\\CaiderBackend.csproj|solutionrelative:caiderbackend\\authentication\\jwt\\jwtserviceextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B39B0A3B-DD60-ABB5-7836-7BE133D819A6}|CaiderBackend\\CaiderBackend.csproj|d:\\project-iot\\caider-backend\\caiderbackend\\data\\datacontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B39B0A3B-DD60-ABB5-7836-7BE133D819A6}|CaiderBackend\\CaiderBackend.csproj|solutionrelative:caiderbackend\\data\\datacontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B39B0A3B-DD60-ABB5-7836-7BE133D819A6}|CaiderBackend\\CaiderBackend.csproj|d:\\project-iot\\caider-backend\\caiderbackend\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B39B0A3B-DD60-ABB5-7836-7BE133D819A6}|CaiderBackend\\CaiderBackend.csproj|solutionrelative:caiderbackend\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B39B0A3B-DD60-ABB5-7836-7BE133D819A6}|CaiderBackend\\CaiderBackend.csproj|d:\\project-iot\\caider-backend\\caiderbackend\\models\\servo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B39B0A3B-DD60-ABB5-7836-7BE133D819A6}|CaiderBackend\\CaiderBackend.csproj|solutionrelative:caiderbackend\\models\\servo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B39B0A3B-DD60-ABB5-7836-7BE133D819A6}|CaiderBackend\\CaiderBackend.csproj|d:\\project-iot\\caider-backend\\caiderbackend\\models\\motor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B39B0A3B-DD60-ABB5-7836-7BE133D819A6}|CaiderBackend\\CaiderBackend.csproj|solutionrelative:caiderbackend\\models\\motor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B39B0A3B-DD60-ABB5-7836-7BE133D819A6}|CaiderBackend\\CaiderBackend.csproj|d:\\project-iot\\caider-backend\\caiderbackend\\models\\microcontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B39B0A3B-DD60-ABB5-7836-7BE133D819A6}|CaiderBackend\\CaiderBackend.csproj|solutionrelative:caiderbackend\\models\\microcontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B39B0A3B-DD60-ABB5-7836-7BE133D819A6}|CaiderBackend\\CaiderBackend.csproj|d:\\project-iot\\caider-backend\\caiderbackend\\models\\expansiveboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B39B0A3B-DD60-ABB5-7836-7BE133D819A6}|CaiderBackend\\CaiderBackend.csproj|solutionrelative:caiderbackend\\models\\expansiveboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B39B0A3B-DD60-ABB5-7836-7BE133D819A6}|CaiderBackend\\CaiderBackend.csproj|d:\\project-iot\\caider-backend\\caiderbackend\\services\\mqttservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B39B0A3B-DD60-ABB5-7836-7BE133D819A6}|CaiderBackend\\CaiderBackend.csproj|solutionrelative:caiderbackend\\services\\mqttservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B39B0A3B-DD60-ABB5-7836-7BE133D819A6}|CaiderBackend\\CaiderBackend.csproj|d:\\project-iot\\caider-backend\\caiderbackend\\authentication\\form\\register.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B39B0A3B-DD60-ABB5-7836-7BE133D819A6}|CaiderBackend\\CaiderBackend.csproj|solutionrelative:caiderbackend\\authentication\\form\\register.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B39B0A3B-DD60-ABB5-7836-7BE133D819A6}|CaiderBackend\\CaiderBackend.csproj|d:\\project-iot\\caider-backend\\caiderbackend\\authentication\\form\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B39B0A3B-DD60-ABB5-7836-7BE133D819A6}|CaiderBackend\\CaiderBackend.csproj|solutionrelative:caiderbackend\\authentication\\form\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B39B0A3B-DD60-ABB5-7836-7BE133D819A6}|CaiderBackend\\CaiderBackend.csproj|d:\\project-iot\\caider-backend\\caiderbackend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B39B0A3B-DD60-ABB5-7836-7BE133D819A6}|CaiderBackend\\CaiderBackend.csproj|solutionrelative:caiderbackend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B39B0A3B-DD60-ABB5-7836-7BE133D819A6}|CaiderBackend\\CaiderBackend.csproj|d:\\project-iot\\caider-backend\\caiderbackend\\caiderbackend.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
+      "RelativeMoniker": "D:0:0:{B39B0A3B-DD60-ABB5-7836-7BE133D819A6}|CaiderBackend\\CaiderBackend.csproj|solutionrelative:caiderbackend\\caiderbackend.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "JwtTokenService.cs",
+              "DocumentMoniker": "D:\\project-IoT\\Caider-backend\\CaiderBackend\\Authentication\\jwt\\JwtTokenService.cs",
+              "RelativeDocumentMoniker": "CaiderBackend\\Authentication\\jwt\\JwtTokenService.cs",
+              "ToolTip": "D:\\project-IoT\\Caider-backend\\CaiderBackend\\Authentication\\jwt\\JwtTokenService.cs",
+              "RelativeToolTip": "CaiderBackend\\Authentication\\jwt\\JwtTokenService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-03T12:57:49.894Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "User.cs",
+              "DocumentMoniker": "D:\\project-IoT\\Caider-backend\\CaiderBackend\\Models\\User.cs",
+              "RelativeDocumentMoniker": "CaiderBackend\\Models\\User.cs",
+              "ToolTip": "D:\\project-IoT\\Caider-backend\\CaiderBackend\\Models\\User.cs",
+              "RelativeToolTip": "CaiderBackend\\Models\\User.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-03T12:57:19.611Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Servo.cs",
+              "DocumentMoniker": "D:\\project-IoT\\Caider-backend\\CaiderBackend\\Models\\Servo.cs",
+              "RelativeDocumentMoniker": "CaiderBackend\\Models\\Servo.cs",
+              "ToolTip": "D:\\project-IoT\\Caider-backend\\CaiderBackend\\Models\\Servo.cs",
+              "RelativeToolTip": "CaiderBackend\\Models\\Servo.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-03T12:57:18.31Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Motor.cs",
+              "DocumentMoniker": "D:\\project-IoT\\Caider-backend\\CaiderBackend\\Models\\Motor.cs",
+              "RelativeDocumentMoniker": "CaiderBackend\\Models\\Motor.cs",
+              "ToolTip": "D:\\project-IoT\\Caider-backend\\CaiderBackend\\Models\\Motor.cs",
+              "RelativeToolTip": "CaiderBackend\\Models\\Motor.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-03T12:57:16.986Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "MicroControl.cs",
+              "DocumentMoniker": "D:\\project-IoT\\Caider-backend\\CaiderBackend\\Models\\MicroControl.cs",
+              "RelativeDocumentMoniker": "CaiderBackend\\Models\\MicroControl.cs",
+              "ToolTip": "D:\\project-IoT\\Caider-backend\\CaiderBackend\\Models\\MicroControl.cs",
+              "RelativeToolTip": "CaiderBackend\\Models\\MicroControl.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-03T12:57:14.907Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ExpansiveBoard.cs",
+              "DocumentMoniker": "D:\\project-IoT\\Caider-backend\\CaiderBackend\\Models\\ExpansiveBoard.cs",
+              "RelativeDocumentMoniker": "CaiderBackend\\Models\\ExpansiveBoard.cs",
+              "ToolTip": "D:\\project-IoT\\Caider-backend\\CaiderBackend\\Models\\ExpansiveBoard.cs",
+              "RelativeToolTip": "CaiderBackend\\Models\\ExpansiveBoard.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-03T12:57:11.903Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "JwtServiceExtensions.cs",
+              "DocumentMoniker": "D:\\project-IoT\\Caider-backend\\CaiderBackend\\Authentication\\jwt\\JwtServiceExtensions.cs",
+              "RelativeDocumentMoniker": "CaiderBackend\\Authentication\\jwt\\JwtServiceExtensions.cs",
+              "ToolTip": "D:\\project-IoT\\Caider-backend\\CaiderBackend\\Authentication\\jwt\\JwtServiceExtensions.cs",
+              "RelativeToolTip": "CaiderBackend\\Authentication\\jwt\\JwtServiceExtensions.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-03T12:43:12.8Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "DataContext.cs",
+              "DocumentMoniker": "D:\\project-IoT\\Caider-backend\\CaiderBackend\\Data\\DataContext.cs",
+              "RelativeDocumentMoniker": "CaiderBackend\\Data\\DataContext.cs",
+              "ToolTip": "D:\\project-IoT\\Caider-backend\\CaiderBackend\\Data\\DataContext.cs",
+              "RelativeToolTip": "CaiderBackend\\Data\\DataContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-03T12:41:53.853Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "JwtOption.cs",
+              "DocumentMoniker": "D:\\project-IoT\\Caider-backend\\CaiderBackend\\Authentication\\jwt\\JwtOption.cs",
+              "RelativeDocumentMoniker": "CaiderBackend\\Authentication\\jwt\\JwtOption.cs",
+              "ToolTip": "D:\\project-IoT\\Caider-backend\\CaiderBackend\\Authentication\\jwt\\JwtOption.cs",
+              "RelativeToolTip": "CaiderBackend\\Authentication\\jwt\\JwtOption.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-03T12:43:10.347Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "MqttService.cs",
+              "DocumentMoniker": "D:\\project-IoT\\Caider-backend\\CaiderBackend\\Services\\MqttService.cs",
+              "RelativeDocumentMoniker": "CaiderBackend\\Services\\MqttService.cs",
+              "ToolTip": "D:\\project-IoT\\Caider-backend\\CaiderBackend\\Services\\MqttService.cs",
+              "RelativeToolTip": "CaiderBackend\\Services\\MqttService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-03T12:42:05.82Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "CaiderBackend.http",
+              "DocumentMoniker": "D:\\project-IoT\\Caider-backend\\CaiderBackend\\CaiderBackend.http",
+              "RelativeDocumentMoniker": "CaiderBackend\\CaiderBackend.http",
+              "ToolTip": "D:\\project-IoT\\Caider-backend\\CaiderBackend\\CaiderBackend.http",
+              "RelativeToolTip": "CaiderBackend\\CaiderBackend.http",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
+              "WhenOpened": "2026-02-03T12:36:08.529Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Login.cs",
+              "DocumentMoniker": "D:\\project-IoT\\Caider-backend\\CaiderBackend\\Authentication\\form\\Login.cs",
+              "RelativeDocumentMoniker": "CaiderBackend\\Authentication\\form\\Login.cs",
+              "ToolTip": "D:\\project-IoT\\Caider-backend\\CaiderBackend\\Authentication\\form\\Login.cs",
+              "RelativeToolTip": "CaiderBackend\\Authentication\\form\\Login.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-03T12:35:28.879Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Register.cs",
+              "DocumentMoniker": "D:\\project-IoT\\Caider-backend\\CaiderBackend\\Authentication\\form\\Register.cs",
+              "RelativeDocumentMoniker": "CaiderBackend\\Authentication\\form\\Register.cs",
+              "ToolTip": "D:\\project-IoT\\Caider-backend\\CaiderBackend\\Authentication\\form\\Register.cs",
+              "RelativeToolTip": "CaiderBackend\\Authentication\\form\\Register.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-03T12:35:28.236Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\project-IoT\\Caider-backend\\CaiderBackend\\Program.cs",
+              "RelativeDocumentMoniker": "CaiderBackend\\Program.cs",
+              "ToolTip": "D:\\project-IoT\\Caider-backend\\CaiderBackend\\Program.cs",
+              "RelativeToolTip": "CaiderBackend\\Program.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-03T12:33:41.048Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

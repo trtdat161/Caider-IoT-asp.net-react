@@ -13,15 +13,19 @@ import { MicrocontrollerForm } from "./crud/MicrocontrollerForm.jsx";
 import { ExpansiveForm } from "./crud/ExpansiveForm.jsx";
 import { ServoForm } from "./crud/ServoForm.jsx";
 import { MotorForm } from "./crud/MotorForm.jsx";
-import { Login } from "./Login.jsx";
+import { Login } from "./form/Login.jsx";
+import { Register } from "./form/Register.jsx";
+import { ForgotPassword } from "./form/ForgotPassword.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <BrowserRouter>
       <Routes>
         {/* còn cái login */}
-        <Route path="/" element={<Login />} />
+        {/* <Route path="/" element={<Login />} /> */}
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/" element={<Register />} />
+        <Route path="/forgot" element={<ForgotPassword />} />
         {/* ----- Outlet dùng phải bọc mấy thằng con bên trong như này ----- */}
         <Route path="/manage" element={<DashboardManage />}>
           <Route index element={<ManagehardWare />} />
@@ -54,5 +58,5 @@ createRoot(document.getElementById("root")).render(
         </Route>
       </Routes>
     </BrowserRouter>
-  </StrictMode>
+  </StrictMode>,
 );
