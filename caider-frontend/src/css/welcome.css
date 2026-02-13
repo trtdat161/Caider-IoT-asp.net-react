@@ -1,0 +1,371 @@
+/* Container - Background đỏ nhẹ */
+
+.welcome-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1a0505 0%, #0d0000 50%, #000000 100%);
+  overflow: hidden;
+  font-family: "Courier New", monospace;
+  animation: fadeInScreen 1.5s ease-in;
+}
+
+@keyframes fadeInScreen {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* ===== ROBOT BACKGROUND - NỔI BẬT HỖN ===== */
+
+.robot-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.35;
+  /* Tăng từ 0.15 lên 0.35 */
+  z-index: 0;
+  filter: brightness(0.8) contrast(1.3);
+  /* Bỏ grayscale, tăng contrast */
+  animation: robotGlow 3s ease-in-out infinite alternate;
+}
+
+/* Animation làm robot phát sáng nhẹ */
+
+@keyframes robotGlow {
+  0% {
+    filter: brightness(0.8) contrast(1.3);
+  }
+  100% {
+    filter: brightness(1) contrast(1.4);
+  }
+}
+
+/* Overlay đỏ nhẹ thay vì đen */
+
+.robot-background::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(139, 0, 0, 0.3) 0%,
+    rgba(70, 0, 0, 0.5) 50%,
+    rgba(0, 0, 0, 0.7) 100%
+  );
+  mix-blend-mode: overlay;
+}
+
+/* Thêm highlight cho viền robot */
+
+.robot-background::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    ellipse at center,
+    transparent 30%,
+    rgba(255, 0, 0, 0.1) 70%,
+    rgba(255, 0, 0, 0.2) 100%
+  );
+  z-index: 1;
+  animation: edgeGlow 4s ease-in-out infinite alternate;
+}
+
+@keyframes edgeGlow {
+  0% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Scanline Effect */
+
+.scanline {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(255, 0, 0, 0.05) 50%,
+    transparent 100%
+  );
+  animation: scanline 12s linear infinite;
+  animation-delay: 1.5s;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0;
+  animation-fill-mode: forwards;
+}
+
+@keyframes scanline {
+  0% {
+    transform: translateY(-100%);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100%);
+    opacity: 1;
+  }
+}
+
+/* Glitch Wrapper */
+
+.glitch-wrapper {
+  position: relative;
+  z-index: 2;
+  opacity: 0;
+  animation: appearText 0.5s ease-in 1.2s forwards;
+}
+
+@keyframes appearText {
+  to {
+    opacity: 1;
+  }
+}
+
+/* Glitch Text */
+
+.glitch {
+  font-size: clamp(2rem, 8vw, 5rem);
+  font-weight: bold;
+  text-transform: uppercase;
+  position: relative;
+  color: #ff0000;
+  letter-spacing: 0.15em;
+  text-shadow:
+    0 0 10px #ff0000,
+    0 0 20px #cc0000,
+    0 0 30px #990000,
+    0 0 40px #ff0000;
+  animation:
+    glitchSubtle 3s infinite alternate 1.7s,
+    typing 1s steps(17) 1.7s forwards;
+  animation-fill-mode: backwards, forwards;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid #ff0000;
+  width: 0;
+}
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  animation: showGlitchLayers 0.1s 2.7s forwards;
+}
+
+@keyframes showGlitchLayers {
+  to {
+    opacity: 0.7;
+  }
+}
+
+.glitch::before {
+  animation:
+    showGlitchLayers 0.1s 2.7s forwards,
+    glitch-before 2s infinite alternate-reverse 2.7s;
+  color: #ff4444;
+  text-shadow:
+    1px 0 #ff4444,
+    0 0 8px #ff4444;
+  clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+}
+
+.glitch::after {
+  animation:
+    showGlitchLayers 0.1s 2.7s forwards,
+    glitch-after 2.5s infinite alternate-reverse 2.7s;
+  color: #660000;
+  text-shadow:
+    -1px 0 #660000,
+    0 0 8px #660000;
+  clip-path: polygon(0 55%, 100% 55%, 100% 100%, 0 100%);
+}
+
+@keyframes glitchSubtle {
+  0%,
+  90%,
+  100% {
+    transform: translate(0);
+  }
+  92% {
+    transform: translate(-1px, 1px);
+  }
+  94% {
+    transform: translate(1px, -1px);
+  }
+  96% {
+    transform: translate(-1px, -1px);
+  }
+  98% {
+    transform: translate(1px, 1px);
+  }
+}
+
+@keyframes glitch-before {
+  0%,
+  95%,
+  100% {
+    clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+  }
+  97% {
+    clip-path: polygon(0 10%, 100% 10%, 100% 50%, 0 50%);
+  }
+}
+
+@keyframes glitch-after {
+  0%,
+  95%,
+  100% {
+    clip-path: polygon(0 55%, 100% 55%, 100% 100%, 0 100%);
+  }
+  97% {
+    clip-path: polygon(0 50%, 100% 50%, 100% 95%, 0 95%);
+  }
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+    border-right-color: #ff0000;
+  }
+  to {
+    width: 100%;
+    border-right-color: transparent;
+  }
+}
+
+/* Loading Bar */
+
+.loading-bar {
+  width: 80%;
+  max-width: 600px;
+  height: 4px;
+  background: rgba(255, 0, 0, 0.1);
+  border-radius: 2px;
+  margin-top: 40px;
+  overflow: hidden;
+  box-shadow:
+    0 0 10px rgba(255, 0, 0, 0.3),
+    inset 0 0 10px rgba(0, 0, 0, 0.8);
+  opacity: 0;
+  animation: appearBar 0.3s ease-in 2.5s forwards;
+  z-index: 2;
+}
+
+@keyframes appearBar {
+  to {
+    opacity: 1;
+  }
+}
+
+.loading-progress {
+  height: 100%;
+  background: linear-gradient(90deg, #ff0000 0%, #cc0000 50%, #ff0000 100%);
+  animation: loading 3s ease-in-out 2.5s forwards;
+  animation-fill-mode: backwards;
+  box-shadow: 0 0 20px #ff0000;
+  width: 0;
+}
+
+@keyframes loading {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+/* Status Text */
+
+.status-text {
+  color: #ff0000;
+  font-size: 1rem;
+  letter-spacing: 0.2em;
+  margin-top: 30px;
+  text-shadow: 0 0 10px #ff0000;
+  opacity: 0;
+  animation:
+    appearBar 0.3s ease-in 2.8s forwards,
+    blinkSubtle 2s infinite 2.8s;
+  z-index: 2;
+}
+
+@keyframes blinkSubtle {
+  0%,
+  90%,
+  100% {
+    opacity: 1;
+  }
+  95% {
+    opacity: 0.7;
+  }
+}
+
+/* Error Text */
+
+.error-text {
+  color: #ff0044;
+  font-size: 0.9rem;
+  letter-spacing: 0.1em;
+  margin-top: 20px;
+  padding: 10px 20px;
+  border: 2px solid #ff0044;
+  background: rgba(255, 0, 68, 0.15);
+  animation: errorPulseSubtle 2s infinite;
+  text-shadow: 0 0 10px #ff0044;
+  z-index: 2;
+}
+
+@keyframes errorPulseSubtle {
+  0%,
+  90%,
+  100% {
+    box-shadow: 0 0 10px #ff0044;
+  }
+  95% {
+    box-shadow:
+      0 0 15px #ff0044,
+      0 0 20px #ff0044;
+  }
+}
+
+/* Responsive */
+
+@media (max-width: 768px) {
+  .glitch {
+    font-size: 2rem;
+  }
+  .status-text {
+    font-size: 0.8rem;
+  }
+}
