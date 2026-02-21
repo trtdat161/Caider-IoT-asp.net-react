@@ -1,30 +1,82 @@
 import { useState } from "react";
 import "../css/addOrUp.css";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 export function Register() {
-  const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [errors, setErrors] = useState({});
+  const [form, setForm] = useState({
+    username: "",
+    email: "",
+    password: "",
+  });
+  const [errors, setErrors] = useState({
+    username: "",
+    email: "",
+    password: "",
+  });
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const nextErrors = {};
-    if (!username.trim()) nextErrors.username = "Username is required";
-    if (!email.trim()) nextErrors.email = "Email is required";
-    else if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email))
-      nextErrors.email = "Invalid email";
-    if (!password) nextErrors.password = "Password is required";
-    else if (password.length < 6)
-      nextErrors.password = "Password must be at least 6 chars";
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setForm({
+      ...form,
+      [name]: value,
+    });
+  };
 
-    setErrors(nextErrors);
-    if (Object.keys(nextErrors).length === 0) {
-      // TODO: call register API here
-      // For now redirect to login or dashboard
-      navigate("/login");
+  const handleSubmit =  async (e) => {
+    e.preventDefault();
+    // validate
+    const newErrors = { username: "", email: "", password: "" };
+
+    // username
+    if (!form.username) {
+      newErrors.username = "username không được để trống !";
+    } else if (form.username.length < 4) {
+      newErrors.username = "username phải hơn 4 ký tự !";
+    }
+
+    // email
+    if (!form.email) {
+      newErrors.email = "email không được để trống";
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) {
+      newErrors.email = "Email không đúng định dạng";
+    }
+
+    // Password
+    if (!form.password) {
+      newErrors.password = "Password không được để trống";
+    } else if (form.password.length < 6) {
+      newErrors.password = "Password tối đa 6 ký tự";
+    } else if (!/(?=.*[a-z])/.test(form.password)) {
+      newErrors.password = "Password phải có ít nhất 1 chữ thường";
+    } else if (!/(?=.*[A-Z])/.test(form.password)) {
+      newErrors.password = "Password phải có ít nhất 1 chữ hoa";
+    } else if (!/(?=.*\d)/.test(form.password)) {
+      newErrors.password = "Password phải có ít nhất 1 chữ số";
+    }
+    setErrors(newErrors);
+
+    // kiểm tra lại lần nữa xem còn nào để trống và có lỗi ko thì mới insert
+    if (Object.values(newErrors).some((error) => error !== "")) {
+      // error !== "" lỗi ko rỗng tức là có lỗi
+      return;
+    }
+
+    // đăng ký
+    try {
+      const response = await axios.post("/api/auth/register", {
+        username: form.username,
+        email: form.email,
+        password: form.password,
+      });
+      const result = response.data;
+      if (result) {
+        console.log("đăng ký thành công");
+        navigate("/login");
+      }
+    } catch (error) {
+      console.log("lỗi: " + error);
     }
   };
 
@@ -45,7 +97,7 @@ export function Register() {
           </h2>
         </div>
         <style>
-            {`
+          {`
                 .input-group-robot .input-wrapper {
                     width: 100%;
                 }
@@ -60,8 +112,9 @@ export function Register() {
             <input
               className="robot-input"
               placeholder="Enter username"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
+              name="username"
+              value={form.username}
+              onChange={handleChange}
             />
             <div className="input-border" />
           </div>
@@ -76,8 +129,9 @@ export function Register() {
             <input
               className="robot-input"
               placeholder="admin@example.com"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              name="email"
+              value={form.email}
+              onChange={handleChange}
             />
             <div className="input-border" />
           </div>
@@ -93,8 +147,9 @@ export function Register() {
               type="password"
               className="robot-input"
               placeholder="At least 6 characters"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              name="password"
+              value={form.password}
+              onChange={handleChange}
             />
             <div className="input-border" />
           </div>

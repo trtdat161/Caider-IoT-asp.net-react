@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\project-IoT\\Caider-backend\\CaiderBackend\\CaiderBackend.csproj": {}
+    "D:\\Caider-IoT-asp.net-react\\Caider-backend\\CaiderBackend\\CaiderBackend.csproj": {}
   },
   "projects": {
-    "D:\\project-IoT\\Caider-backend\\CaiderBackend\\CaiderBackend.csproj": {
+    "D:\\Caider-IoT-asp.net-react\\Caider-backend\\CaiderBackend\\CaiderBackend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\project-IoT\\Caider-backend\\CaiderBackend\\CaiderBackend.csproj",
+        "projectUniqueName": "D:\\Caider-IoT-asp.net-react\\Caider-backend\\CaiderBackend\\CaiderBackend.csproj",
         "projectName": "CaiderBackend",
-        "projectPath": "D:\\project-IoT\\Caider-backend\\CaiderBackend\\CaiderBackend.csproj",
-        "packagesPath": "C:\\Users\\3020\\.nuget\\packages\\",
-        "outputPath": "D:\\project-IoT\\Caider-backend\\CaiderBackend\\obj\\",
+        "projectPath": "D:\\Caider-IoT-asp.net-react\\Caider-backend\\CaiderBackend\\CaiderBackend.csproj",
+        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+        "outputPath": "D:\\Caider-IoT-asp.net-react\\Caider-backend\\CaiderBackend\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\3020\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],

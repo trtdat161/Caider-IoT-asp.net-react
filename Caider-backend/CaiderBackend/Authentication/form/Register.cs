@@ -16,7 +16,7 @@ namespace CaiderBackend.Authentication.form
                 {
                     return Results.Conflict(new {
                         code = "ADMIN_EXISTS",
-                        message = "đã có admin trong hệ thống"
+                        message = "đã có admin trong hệ thống !"
                     });
                 }
                 // ------------ validate ------------

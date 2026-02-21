@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CaiderBackend")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+feb8d40c73df51a04891e47afee48816b5f3b134")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9e1d27461a71957a913600393a6d34dbb15be836")]
 [assembly: System.Reflection.AssemblyProductAttribute("CaiderBackend")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CaiderBackend")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

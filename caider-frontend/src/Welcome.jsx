@@ -2,20 +2,22 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-// unmount nghĩa là component bị hủy, TỨC NẾU CHUYỂN TRANG THÌ NÓ SẼ BỊ UNMOUNT
+import "./css/welcome.css";
+import robotBg from "./assets/img/robot.jpg";
+
 export function Welcome() {
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
   useEffect(() => {
-    let isMounted = true; // kiểm tra component còn sống hay không (MẶC ĐỊNH TRUE LÀ CÒN)
+    let isMounted = true;
     let timeoutId = null;
+    let time = 3000;
 
     const checkAdmin = async () => {
       try {
         const response = await axios.get("/api/auth/bootstrap");
 
-        // Kiểm tra component còn sống không
         if (!isMounted) {
           console.log("Component welcome đã chết, không cập nhật state nữa");
           return;
@@ -24,20 +26,18 @@ export function Welcome() {
         const result = response.data;
         if (result.status) {
           console.log("Admin tồn tại, tiến hành login");
-          // setTimeout 2s
           timeoutId = setTimeout(() => {
             if (isMounted) {
-              // Check lại trước khi navigate
               navigate("/login");
             }
-          }, 2000);
+          }, time);
         } else {
           console.log("Chưa có admin, đăng ký");
           timeoutId = setTimeout(() => {
             if (isMounted) {
               navigate("/register");
             }
-          }, 2000);
+          }, time);
         }
       } catch (err) {
         if (isMounted) {
@@ -52,20 +52,35 @@ export function Welcome() {
     return () => {
       isMounted = false;
       if (timeoutId) {
-        clearTimeout(timeoutId); // Hủy timer nếu user rời trang
+        clearTimeout(timeoutId);
       }
     };
-  }, [navigate]); // cho navigate vào [] vì đang trong useEffect, đây là rule của React
-  /*
-  Hàm được return trong useEffect sẽ chạy khi:
-  - Component unmount COMPONENT BỊ HỦY (chuyển trang)
-  - useEffect cho phép trả về một function -> React gọi function đó khi cần dọn dẹp.
-  */
+    /*
+    trong useFffect này, return một hàm dọn dẹp để đặt isMounted thành false khi component unmount.
+    */
+  }, [navigate]);
 
   return (
-    <>
-      <h1>welcome you, boss</h1>
-      {/* Animation của bạn sẽ ở đây */}
-    </>
+    <div className="welcome-container">
+      {/* Background robot mờ */}
+      <div
+        className="robot-background"
+        style={{ backgroundImage: `url(${robotBg})` }}
+        // {object}
+      ></div>
+
+      <div className="scanline"></div>
+
+      <div className="glitch-wrapper">
+        <h1 className="glitch" data-text="WELCOME YOU, BOSS">
+          WELCOME YOU, BOSS
+        </h1>
+      </div>
+      <div className="loading-bar">
+        <div className="loading-progress"></div>
+      </div>
+      <p className="status-text">[ SYSTEM INITIALIZING... ]</p>
+      {error && <p className="error-text">[ ERROR: {error} ]</p>}
+    </div>
   );
 }

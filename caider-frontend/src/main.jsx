@@ -16,16 +16,18 @@ import { MotorForm } from "./crud/MotorForm.jsx";
 import { Login } from "./form/Login.jsx";
 import { Register } from "./form/Register.jsx";
 import { ForgotPassword } from "./form/ForgotPassword.jsx";
+import { Welcome } from "./Welcome.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <BrowserRouter>
       <Routes>
         {/* còn cái login */}
-        {/* <Route path="/" element={<Login />} /> */}
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/" element={<Register />} />
+        <Route path="/" element={<Welcome />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
         <Route path="/forgot" element={<ForgotPassword />} />
+        <Route path="/dashboard" element={<Dashboard />} />
         {/* ----- Outlet dùng phải bọc mấy thằng con bên trong như này ----- */}
         <Route path="/manage" element={<DashboardManage />}>
           <Route index element={<ManagehardWare />} />

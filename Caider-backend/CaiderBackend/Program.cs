@@ -6,6 +6,7 @@ using CaiderBackend.Models;
 using CaiderBackend.Services;
 /* usung api cho form login... */
 using CaiderBackend.Authentication.form;
+using CaiderBackend.Authentication.ServicesAuth;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -58,6 +59,7 @@ app.UseAuthorization();// use phân quyền
 /* ====== auth api(KHAI BÁO NÀY RA MỚI GỌI ĐƯỢC) ====== */
 app.RegisterApi(); // đăng ký api register
 app.LoginApi(); // đăng ký api login
+app.BootstrapApi();// đăng ký kiểm tra có admin
 
 app.MapControllers();
 

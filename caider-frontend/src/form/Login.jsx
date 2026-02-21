@@ -1,22 +1,67 @@
 import { useState } from "react";
 import "../css/login.css";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 export function Login() {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [errorUsername, setErrorUsername] = useState("");
-  const [errorPassword, setErrorPassword] = useState("");
+  const [form, setForm] = [
+    {
+      username: "",
+      password: "",
+    },
+  ];
+  const [errors, setErrors] = useState[{}];
   const navigate = useNavigate();
 
-  const LoginAction = (e) => {
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setForm({
+      ...form,
+      [name]: value,
+    });
+  };
+
+  const LoginAction = async (e) => {
     e.preventDefault();
-    if (username === "") {
-      setErrorUsername("empty username !");
-    } else if (password === "") {
-      setErrorPassword("empty password !");
-    } else {
-      navigate("/dashboard");
+    const newErrors = { username: "", password: "" };
+
+    // username
+    if (!form.username) {
+      newErrors.username = "username không được để trống !";
+    } else if (form.username.length < 4) {
+      newErrors.username = "username phải hơn 4 ký tự !";
+    }
+
+    // Password
+    if (!form.password) {
+      newErrors.password = "Password không được để trống";
+    } else if (form.password.length < 6) {
+      newErrors.password = "Password tối đa 6 ký tự";
+    } else if (!/(?=.*[a-z])/.test(form.password)) {
+      newErrors.password = "Password phải có ít nhất 1 chữ thường";
+    } else if (!/(?=.*[A-Z])/.test(form.password)) {
+      newErrors.password = "Password phải có ít nhất 1 chữ hoa";
+    } else if (!/(?=.*\d)/.test(form.password)) {
+      newErrors.password = "Password phải có ít nhất 1 chữ số";
+    }
+    setErrors(newErrors);
+
+    // kiểm tra lại xem còn cái nào rỗng ko và còn cái nào có lỗi k
+    if (Object.values(newErrors).some((error) => error !== "")) {
+      return;
+    }
+
+    try {
+      const response = await axios.post("/api/auth/login", {
+        username: form.username,
+        password: form.password,
+      });
+      console.log("data: " + response.data);
+      const result = response.data;
+
+      localStorage.setItem("access_token", result.access_token); // access_token key của BE
+    } catch (err) {
+      console.log("lỗi: " + err.error);
     }
   };
 
@@ -38,7 +83,7 @@ export function Login() {
               id="username"
               placeholder="username"
               className="form-control"
-              onChange={(e) => setUsername(e.target.value)}
+              onChange={handleChange}
             />
             {errorUsername && (
               <span className="error-message text-danger">{errorUsername}</span>
@@ -55,7 +100,7 @@ export function Login() {
               id="password"
               placeholder="password"
               className="form-control"
-              onChange={(e) => setPassword(e.target.value)}
+              onChange={handleChange}
             />
             {errorPassword && (
               <span className="error-message text-danger">{errorPassword}</span>
