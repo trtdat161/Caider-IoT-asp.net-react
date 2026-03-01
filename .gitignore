@@ -1,0 +1,32 @@
+# =============================
+# Logs
+# =============================
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# =============================
+# Frontend (React)
+# =============================
+frontend/node_modules/
+frontend/dist/
+frontend/dist-ssr/
+
+# =============================
+# .NET / Visual Studio
+# =============================
+.vs/
+**/bin/
+**/obj/
+*.user
+*.suo
+
+# =============================
+# Editors
+# =============================
+.vscode/
+.idea/
+.DS_Store
+*.sw?
