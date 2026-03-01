@@ -3,24 +3,40 @@
   "WorkspaceRootPath": "D:\\Caider-IoT-asp.net-react\\Caider-backend\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B39B0A3B-DD60-ABB5-7836-7BE133D819A6}|CaiderBackend\\CaiderBackend.csproj|d:\\caider-iot-asp.net-react\\caider-backend\\caiderbackend\\authentication\\servicesauth\\bootstrap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B39B0A3B-DD60-ABB5-7836-7BE133D819A6}|CaiderBackend\\CaiderBackend.csproj|solutionrelative:caiderbackend\\authentication\\servicesauth\\bootstrap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B39B0A3B-DD60-ABB5-7836-7BE133D819A6}|CaiderBackend\\CaiderBackend.csproj|d:\\caider-iot-asp.net-react\\caider-backend\\caiderbackend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B39B0A3B-DD60-ABB5-7836-7BE133D819A6}|CaiderBackend\\CaiderBackend.csproj|solutionrelative:caiderbackend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B39B0A3B-DD60-ABB5-7836-7BE133D819A6}|CaiderBackend\\CaiderBackend.csproj|d:\\caider-iot-asp.net-react\\caider-backend\\caiderbackend\\data\\datacontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B39B0A3B-DD60-ABB5-7836-7BE133D819A6}|CaiderBackend\\CaiderBackend.csproj|solutionrelative:caiderbackend\\data\\datacontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B39B0A3B-DD60-ABB5-7836-7BE133D819A6}|CaiderBackend\\CaiderBackend.csproj|d:\\caider-iot-asp.net-react\\caider-backend\\caiderbackend\\authentication\\form\\register.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B39B0A3B-DD60-ABB5-7836-7BE133D819A6}|CaiderBackend\\CaiderBackend.csproj|solutionrelative:caiderbackend\\authentication\\form\\register.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B39B0A3B-DD60-ABB5-7836-7BE133D819A6}|CaiderBackend\\CaiderBackend.csproj|d:\\caider-iot-asp.net-react\\caider-backend\\caiderbackend\\authentication\\form\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B39B0A3B-DD60-ABB5-7836-7BE133D819A6}|CaiderBackend\\CaiderBackend.csproj|solutionrelative:caiderbackend\\authentication\\form\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B39B0A3B-DD60-ABB5-7836-7BE133D819A6}|CaiderBackend\\CaiderBackend.csproj|d:\\caider-iot-asp.net-react\\caider-backend\\caiderbackend\\authentication\\form\\register.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B39B0A3B-DD60-ABB5-7836-7BE133D819A6}|CaiderBackend\\CaiderBackend.csproj|solutionrelative:caiderbackend\\authentication\\form\\register.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B39B0A3B-DD60-ABB5-7836-7BE133D819A6}|CaiderBackend\\CaiderBackend.csproj|d:\\caider-iot-asp.net-react\\caider-backend\\caiderbackend\\authentication\\servicesauth\\bootstrap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B39B0A3B-DD60-ABB5-7836-7BE133D819A6}|CaiderBackend\\CaiderBackend.csproj|solutionrelative:caiderbackend\\authentication\\servicesauth\\bootstrap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B39B0A3B-DD60-ABB5-7836-7BE133D819A6}|CaiderBackend\\CaiderBackend.csproj|d:\\caider-iot-asp.net-react\\caider-backend\\caiderbackend\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{B39B0A3B-DD60-ABB5-7836-7BE133D819A6}|CaiderBackend\\CaiderBackend.csproj|solutionrelative:caiderbackend\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B39B0A3B-DD60-ABB5-7836-7BE133D819A6}|CaiderBackend\\CaiderBackend.csproj|d:\\caider-iot-asp.net-react\\caider-backend\\caiderbackend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B39B0A3B-DD60-ABB5-7836-7BE133D819A6}|CaiderBackend\\CaiderBackend.csproj|solutionrelative:caiderbackend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B39B0A3B-DD60-ABB5-7836-7BE133D819A6}|CaiderBackend\\CaiderBackend.csproj|d:\\caider-iot-asp.net-react\\caider-backend\\caiderbackend\\wwwroot\\assets\\index-djxzzgbc.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{B39B0A3B-DD60-ABB5-7836-7BE133D819A6}|CaiderBackend\\CaiderBackend.csproj|solutionrelative:caiderbackend\\wwwroot\\assets\\index-djxzzgbc.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B39B0A3B-DD60-ABB5-7836-7BE133D819A6}|CaiderBackend\\CaiderBackend.csproj|d:\\caider-iot-asp.net-react\\caider-backend\\caiderbackend\\wwwroot\\assets\\index-cprbgupy.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{B39B0A3B-DD60-ABB5-7836-7BE133D819A6}|CaiderBackend\\CaiderBackend.csproj|solutionrelative:caiderbackend\\wwwroot\\assets\\index-cprbgupy.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B39B0A3B-DD60-ABB5-7836-7BE133D819A6}|CaiderBackend\\CaiderBackend.csproj|d:\\caider-iot-asp.net-react\\caider-backend\\caiderbackend\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B39B0A3B-DD60-ABB5-7836-7BE133D819A6}|CaiderBackend\\CaiderBackend.csproj|solutionrelative:caiderbackend\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B39B0A3B-DD60-ABB5-7836-7BE133D819A6}|CaiderBackend\\CaiderBackend.csproj|d:\\caider-iot-asp.net-react\\caider-backend\\caiderbackend\\data\\datacontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B39B0A3B-DD60-ABB5-7836-7BE133D819A6}|CaiderBackend\\CaiderBackend.csproj|solutionrelative:caiderbackend\\data\\datacontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B39B0A3B-DD60-ABB5-7836-7BE133D819A6}|CaiderBackend\\CaiderBackend.csproj|d:\\caider-iot-asp.net-react\\caider-backend\\caiderbackend\\authentication\\jwt\\jwttokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -47,10 +63,6 @@
       "RelativeMoniker": "D:0:0:{B39B0A3B-DD60-ABB5-7836-7BE133D819A6}|CaiderBackend\\CaiderBackend.csproj|solutionrelative:caiderbackend\\models\\servo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B39B0A3B-DD60-ABB5-7836-7BE133D819A6}|CaiderBackend\\CaiderBackend.csproj|d:\\caider-iot-asp.net-react\\caider-backend\\caiderbackend\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B39B0A3B-DD60-ABB5-7836-7BE133D819A6}|CaiderBackend\\CaiderBackend.csproj|solutionrelative:caiderbackend\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{B39B0A3B-DD60-ABB5-7836-7BE133D819A6}|CaiderBackend\\CaiderBackend.csproj|d:\\caider-iot-asp.net-react\\caider-backend\\caiderbackend\\models\\motor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B39B0A3B-DD60-ABB5-7836-7BE133D819A6}|CaiderBackend\\CaiderBackend.csproj|solutionrelative:caiderbackend\\models\\motor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -74,36 +86,32 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 9,
           "Children": [
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Bootstrap.cs",
-              "DocumentMoniker": "D:\\Caider-IoT-asp.net-react\\Caider-backend\\CaiderBackend\\Authentication\\ServicesAuth\\Bootstrap.cs",
-              "RelativeDocumentMoniker": "CaiderBackend\\Authentication\\ServicesAuth\\Bootstrap.cs",
-              "ToolTip": "D:\\Caider-IoT-asp.net-react\\Caider-backend\\CaiderBackend\\Authentication\\ServicesAuth\\Bootstrap.cs",
-              "RelativeToolTip": "CaiderBackend\\Authentication\\ServicesAuth\\Bootstrap.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAnAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-08T11:29:49.79Z",
+              "DocumentIndex": 3,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\Caider-IoT-asp.net-react\\Caider-backend\\CaiderBackend\\appsettings.json",
+              "RelativeDocumentMoniker": "CaiderBackend\\appsettings.json",
+              "ToolTip": "D:\\Caider-IoT-asp.net-react\\Caider-backend\\CaiderBackend\\appsettings.json",
+              "RelativeToolTip": "CaiderBackend\\appsettings.json",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-03-01T05:05:57.847Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "JwtTokenService.cs",
-              "DocumentMoniker": "D:\\Caider-IoT-asp.net-react\\Caider-backend\\CaiderBackend\\Authentication\\jwt\\JwtTokenService.cs",
-              "RelativeDocumentMoniker": "CaiderBackend\\Authentication\\jwt\\JwtTokenService.cs",
-              "ToolTip": "D:\\Caider-IoT-asp.net-react\\Caider-backend\\CaiderBackend\\Authentication\\jwt\\JwtTokenService.cs",
-              "RelativeToolTip": "CaiderBackend\\Authentication\\jwt\\JwtTokenService.cs",
-              "ViewState": "AgIAAAwAAACAZmZmZmY5wCYAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-03T12:57:49.894Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 12,
               "Title": "JwtServiceExtensions.cs",
               "DocumentMoniker": "D:\\Caider-IoT-asp.net-react\\Caider-backend\\CaiderBackend\\Authentication\\jwt\\JwtServiceExtensions.cs",
               "RelativeDocumentMoniker": "CaiderBackend\\Authentication\\jwt\\JwtServiceExtensions.cs",
@@ -115,19 +123,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "Login.cs",
               "DocumentMoniker": "D:\\Caider-IoT-asp.net-react\\Caider-backend\\CaiderBackend\\Authentication\\form\\Login.cs",
               "RelativeDocumentMoniker": "CaiderBackend\\Authentication\\form\\Login.cs",
               "ToolTip": "D:\\Caider-IoT-asp.net-react\\Caider-backend\\CaiderBackend\\Authentication\\form\\Login.cs",
               "RelativeToolTip": "CaiderBackend\\Authentication\\form\\Login.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAADcAAAAsAAAAAAAAAA==",
+              "ViewState": "AgIAABoAAAAAAAAAAAAIwC0AAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-03T12:35:28.879Z"
+              "WhenOpened": "2026-02-03T12:35:28.879Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 11,
               "Title": "JwtOption.cs",
               "DocumentMoniker": "D:\\Caider-IoT-asp.net-react\\Caider-backend\\CaiderBackend\\Authentication\\jwt\\JwtOption.cs",
               "RelativeDocumentMoniker": "CaiderBackend\\Authentication\\jwt\\JwtOption.cs",
@@ -139,7 +148,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 8,
               "Title": "DataContext.cs",
               "DocumentMoniker": "D:\\Caider-IoT-asp.net-react\\Caider-backend\\CaiderBackend\\Data\\DataContext.cs",
               "RelativeDocumentMoniker": "CaiderBackend\\Data\\DataContext.cs",
@@ -151,19 +160,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\Caider-IoT-asp.net-react\\Caider-backend\\CaiderBackend\\Program.cs",
               "RelativeDocumentMoniker": "CaiderBackend\\Program.cs",
               "ToolTip": "D:\\Caider-IoT-asp.net-react\\Caider-backend\\CaiderBackend\\Program.cs",
               "RelativeToolTip": "CaiderBackend\\Program.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAA4AAAA7AAAAAAAAAA==",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAACIAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-03T12:33:41.048Z"
+              "WhenOpened": "2026-02-03T12:33:41.048Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 10,
               "Title": "ForgotPassword.cs",
               "DocumentMoniker": "D:\\Caider-IoT-asp.net-react\\Caider-backend\\CaiderBackend\\Authentication\\form\\ForgotPassword.cs",
               "RelativeDocumentMoniker": "CaiderBackend\\Authentication\\form\\ForgotPassword.cs",
@@ -175,19 +185,84 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
               "Title": "Register.cs",
               "DocumentMoniker": "D:\\Caider-IoT-asp.net-react\\Caider-backend\\CaiderBackend\\Authentication\\form\\Register.cs",
               "RelativeDocumentMoniker": "CaiderBackend\\Authentication\\form\\Register.cs",
               "ToolTip": "D:\\Caider-IoT-asp.net-react\\Caider-backend\\CaiderBackend\\Authentication\\form\\Register.cs",
               "RelativeToolTip": "CaiderBackend\\Authentication\\form\\Register.cs",
-              "ViewState": "AgIAAEcAAAAALDMzMzPzvzcAAAARAAAAAAAAAA==",
+              "ViewState": "AgIAAEgAAAAAAAAAAAD4v1UAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-03T12:35:28.236Z"
+              "WhenOpened": "2026-02-03T12:35:28.236Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Bootstrap.cs",
+              "DocumentMoniker": "D:\\Caider-IoT-asp.net-react\\Caider-backend\\CaiderBackend\\Authentication\\ServicesAuth\\Bootstrap.cs",
+              "RelativeDocumentMoniker": "CaiderBackend\\Authentication\\ServicesAuth\\Bootstrap.cs",
+              "ToolTip": "D:\\Caider-IoT-asp.net-react\\Caider-backend\\CaiderBackend\\Authentication\\ServicesAuth\\Bootstrap.cs",
+              "RelativeToolTip": "CaiderBackend\\Authentication\\ServicesAuth\\Bootstrap.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAowBAAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-08T11:29:49.79Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "index-CprBgUpY.css",
+              "DocumentMoniker": "D:\\Caider-IoT-asp.net-react\\Caider-backend\\CaiderBackend\\wwwroot\\assets\\index-CprBgUpY.css",
+              "RelativeDocumentMoniker": "CaiderBackend\\wwwroot\\assets\\index-CprBgUpY.css",
+              "ToolTip": "D:\\Caider-IoT-asp.net-react\\Caider-backend\\CaiderBackend\\wwwroot\\assets\\index-CprBgUpY.css",
+              "RelativeToolTip": "CaiderBackend\\wwwroot\\assets\\index-CprBgUpY.css",
+              "ViewState": "AgIAADQEAAAAAAAAAAAiwFIEAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2026-03-01T04:17:43.007Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "index-DjxZZgBc.js",
+              "DocumentMoniker": "D:\\Caider-IoT-asp.net-react\\Caider-backend\\CaiderBackend\\wwwroot\\assets\\index-DjxZZgBc.js",
+              "RelativeDocumentMoniker": "CaiderBackend\\wwwroot\\assets\\index-DjxZZgBc.js",
+              "ToolTip": "D:\\Caider-IoT-asp.net-react\\Caider-backend\\CaiderBackend\\wwwroot\\assets\\index-DjxZZgBc.js",
+              "RelativeToolTip": "CaiderBackend\\wwwroot\\assets\\index-DjxZZgBc.js",
+              "ViewState": "AgIAAEUAAAAAAAAAAAAAAF4AAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2026-03-01T04:18:26.325Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "User.cs",
+              "DocumentMoniker": "D:\\Caider-IoT-asp.net-react\\Caider-backend\\CaiderBackend\\Models\\User.cs",
+              "RelativeDocumentMoniker": "CaiderBackend\\Models\\User.cs",
+              "ToolTip": "D:\\Caider-IoT-asp.net-react\\Caider-backend\\CaiderBackend\\Models\\User.cs",
+              "RelativeToolTip": "CaiderBackend\\Models\\User.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-03T12:57:19.611Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 9,
+              "Title": "JwtTokenService.cs",
+              "DocumentMoniker": "D:\\Caider-IoT-asp.net-react\\Caider-backend\\CaiderBackend\\Authentication\\jwt\\JwtTokenService.cs",
+              "RelativeDocumentMoniker": "CaiderBackend\\Authentication\\jwt\\JwtTokenService.cs",
+              "ToolTip": "D:\\Caider-IoT-asp.net-react\\Caider-backend\\CaiderBackend\\Authentication\\jwt\\JwtTokenService.cs",
+              "RelativeToolTip": "CaiderBackend\\Authentication\\jwt\\JwtTokenService.cs",
+              "ViewState": "AgIAAAwAAACAZmZmZmY5wCYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-03T12:57:49.894Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
               "Title": "MicroControl.cs",
               "DocumentMoniker": "D:\\Caider-IoT-asp.net-react\\Caider-backend\\CaiderBackend\\Models\\MicroControl.cs",
               "RelativeDocumentMoniker": "CaiderBackend\\Models\\MicroControl.cs",
@@ -199,7 +274,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 14,
               "Title": "Servo.cs",
               "DocumentMoniker": "D:\\Caider-IoT-asp.net-react\\Caider-backend\\CaiderBackend\\Models\\Servo.cs",
               "RelativeDocumentMoniker": "CaiderBackend\\Models\\Servo.cs",
@@ -211,19 +286,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "User.cs",
-              "DocumentMoniker": "D:\\Caider-IoT-asp.net-react\\Caider-backend\\CaiderBackend\\Models\\User.cs",
-              "RelativeDocumentMoniker": "CaiderBackend\\Models\\User.cs",
-              "ToolTip": "D:\\Caider-IoT-asp.net-react\\Caider-backend\\CaiderBackend\\Models\\User.cs",
-              "RelativeToolTip": "CaiderBackend\\Models\\User.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAbAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-03T12:57:19.611Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 16,
               "Title": "ExpansiveBoard.cs",
               "DocumentMoniker": "D:\\Caider-IoT-asp.net-react\\Caider-backend\\CaiderBackend\\Models\\ExpansiveBoard.cs",
               "RelativeDocumentMoniker": "CaiderBackend\\Models\\ExpansiveBoard.cs",
@@ -235,7 +298,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 15,
               "Title": "Motor.cs",
               "DocumentMoniker": "D:\\Caider-IoT-asp.net-react\\Caider-backend\\CaiderBackend\\Models\\Motor.cs",
               "RelativeDocumentMoniker": "CaiderBackend\\Models\\Motor.cs",
@@ -247,7 +310,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 17,
               "Title": "MqttService.cs",
               "DocumentMoniker": "D:\\Caider-IoT-asp.net-react\\Caider-backend\\CaiderBackend\\Services\\MqttService.cs",
               "RelativeDocumentMoniker": "CaiderBackend\\Services\\MqttService.cs",
@@ -259,7 +322,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 18,
               "Title": "CaiderBackend.http",
               "DocumentMoniker": "D:\\Caider-IoT-asp.net-react\\Caider-backend\\CaiderBackend\\CaiderBackend.http",
               "RelativeDocumentMoniker": "CaiderBackend\\CaiderBackend.http",

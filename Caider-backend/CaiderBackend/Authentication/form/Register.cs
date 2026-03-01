@@ -1,5 +1,6 @@
 ﻿using CaiderBackend.data;
 using CaiderBackend.Models;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace CaiderBackend.Authentication.form
@@ -8,7 +9,7 @@ namespace CaiderBackend.Authentication.form
     {
         public static void RegisterApi(this WebApplication app)
         {
-            app.MapPost("/api/auth/register", async(DataContext db, string username, string password, string email)
+            app.MapPost("/api/auth/register", async(DataContext db, [FromBody] User request) // dùng [Frombody] để lấy dữ liệu từ body của request phía client 
             =>
             {
                 bool adminExists = await db.Users.AnyAsync();// Any kiểm tra đã có admin chưa
@@ -20,7 +21,7 @@ namespace CaiderBackend.Authentication.form
                     });
                 }
                 // ------------ validate ------------
-                if (string.IsNullOrEmpty(username))
+                if (string.IsNullOrEmpty(request.Username))
                 {
                     return Results.BadRequest(new
                     {
@@ -28,7 +29,7 @@ namespace CaiderBackend.Authentication.form
                         message = "vui lòng nhập tên đăng nhập"
                     });
                 }
-                if(string.IsNullOrEmpty(password))
+                if(string.IsNullOrEmpty(request.Password))
                 {
                     return Results.BadRequest(new
                     {
@@ -36,7 +37,7 @@ namespace CaiderBackend.Authentication.form
                         message = "vui lòng nhập mật khẩu"
                     });
                 }
-                if(password.Length < 3)
+                if(request.Password.Length < 3)
                 {
                     return Results.BadRequest(new
                     {
@@ -46,7 +47,7 @@ namespace CaiderBackend.Authentication.form
                 }
                 var passwordPattern = @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{3,}$";
 
-                if (!System.Text.RegularExpressions.Regex.IsMatch(password, passwordPattern))
+                if (!System.Text.RegularExpressions.Regex.IsMatch(request.Password, passwordPattern))
                 {
                     return Results.BadRequest(new
                     {
@@ -54,7 +55,7 @@ namespace CaiderBackend.Authentication.form
                         message = "mật khẩu phải có chữ hoa, chữ thường và số"
                     });
                 }
-                if (string.IsNullOrEmpty(email))
+                if (string.IsNullOrEmpty(request.Email))
                 {
                     return Results.BadRequest(new
                     {
@@ -62,9 +63,9 @@ namespace CaiderBackend.Authentication.form
                         message = "vui lòng nhập email"
                     });
                 }
-                var emailPattern = "^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$\r\n";
-                
-                if (!System.Text.RegularExpressions.Regex.IsMatch(email, emailPattern))
+                var emailPattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
+
+                if (!System.Text.RegularExpressions.Regex.IsMatch(request.Email, emailPattern))
                 {
                     return Results.BadRequest(new
                     {
@@ -76,9 +77,9 @@ namespace CaiderBackend.Authentication.form
                 /* ============ tạo admin ============ */
                 User adminActive = new User
                 {
-                    Username = username,
-                    Password = BCrypt.Net.BCrypt.HashPassword(password), // mã hóa password
-                    Email = email,
+                    Username = request.Username,
+                    Password = BCrypt.Net.BCrypt.HashPassword(request.Password), // mã hóa password
+                    Email = request.Email,
                     CreatedAt = DateTime.UtcNow
                 };
                 db.Users.Add(adminActive);

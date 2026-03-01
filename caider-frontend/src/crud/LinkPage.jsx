@@ -17,7 +17,7 @@ export function LinkPage() {
           >
             <li className="breadcrumb-item">
               <Link
-                to="/"
+                to="/dashboard"
                 className="text-primary text-decoration-none fw-semibold"
               >
                 <i className="bi bi-house-door-fill me-2"></i>Home

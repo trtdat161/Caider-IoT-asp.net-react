@@ -6,6 +6,7 @@ export function Sidebar() {
   const [isOpen, setIsOpen] = useState(false); // Trạng thái mở/đóng trên mobile
   const location = useLocation();
   const isActive = (path) => location.pathname === path;
+  const year = new Date().getFullYear();
 
   return (
     <>
@@ -103,7 +104,9 @@ export function Sidebar() {
 
         <div className="position-absolute bottom-0 w-100 p-4 text-center">
           <small className="text-muted" style={{ fontSize: "0.8rem" }}>
-            <div className="text-white">Powered by Future Robotics © 2025</div>
+            <div className="text-white">
+              Powered by Future Robotics © {year}
+            </div>
           </small>
         </div>
       </div>

@@ -25,4 +25,5 @@ dist-ssr
 
 # thêm vào để push git
 .vs/
-
+**/bin/
+**/obj/

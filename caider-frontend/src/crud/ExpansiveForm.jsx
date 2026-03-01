@@ -94,9 +94,7 @@ export function ExpansiveForm() {
     return () => clearTimeout(time);
   }, [success]);
 
-  const title = isEditMode
-    ? "Update Expansive Board"
-    : "Add New Expansive Board";
+  const title = isEditMode ? "Update Expansive Board" : "Add Expansive Board";
   const buttonText = isEditMode
     ? "Update Expansive Board"
     : "Add Expansive Board";

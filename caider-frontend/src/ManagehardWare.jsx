@@ -72,7 +72,10 @@ export function ManagehardWare() {
               CAIDER HARDWARE MANAGEMENT
             </span>
           </div>
-          <button onClick={() => navigate("/")} className="btn btn-secondary">
+          <button
+            onClick={() => navigate("/dashboard")}
+            className="btn btn-secondary"
+          >
             Home
           </button>
         </div>

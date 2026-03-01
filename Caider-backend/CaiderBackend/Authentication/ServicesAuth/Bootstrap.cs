@@ -14,12 +14,12 @@ namespace CaiderBackend.Authentication.ServicesAuth
                 {
                     return Results.Json(new
                     {
-                        status = false,
+                        status = true,
                     });
                 }
                 return Results.Json(new
                 {
-                    status = true
+                    status = false
                 });
             }).AllowAnonymous();
         }

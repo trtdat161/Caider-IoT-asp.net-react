@@ -24,13 +24,8 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "username",
-        "Type": "System.String",
-        "IsRequired": true
-      },
-      {
-        "Name": "password",
-        "Type": "System.String",
+        "Name": "request",
+        "Type": "CaiderBackend.Models.User",
         "IsRequired": true
       }
     ],
@@ -51,18 +46,8 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "username",
-        "Type": "System.String",
-        "IsRequired": true
-      },
-      {
-        "Name": "password",
-        "Type": "System.String",
-        "IsRequired": true
-      },
-      {
-        "Name": "email",
-        "Type": "System.String",
+        "Name": "request",
+        "Type": "CaiderBackend.Models.User",
         "IsRequired": true
       }
     ],

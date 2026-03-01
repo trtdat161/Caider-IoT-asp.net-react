@@ -638,3 +638,8 @@ D:\Caider-IoT-asp.net-react\Caider-backend\CaiderBackend\obj\Debug\net10.0\refin
 D:\Caider-IoT-asp.net-react\Caider-backend\CaiderBackend\obj\Debug\net10.0\CaiderBackend.pdb
 D:\Caider-IoT-asp.net-react\Caider-backend\CaiderBackend\obj\Debug\net10.0\CaiderBackend.genruntimeconfig.cache
 D:\Caider-IoT-asp.net-react\Caider-backend\CaiderBackend\obj\Debug\net10.0\ref\CaiderBackend.dll
+D:\Caider-IoT-asp.net-react\Caider-backend\CaiderBackend\bin\Debug\net10.0\CaiderBackend.staticwebassets.runtime.json
+D:\Caider-IoT-asp.net-react\Caider-backend\CaiderBackend\obj\Debug\net10.0\compressed\h5ygip0p4i-{0}-c75n6jwwh9-c75n6jwwh9.gz
+D:\Caider-IoT-asp.net-react\Caider-backend\CaiderBackend\obj\Debug\net10.0\compressed\r1msnd3hlj-{0}-jem3e65vgv-jem3e65vgv.gz
+D:\Caider-IoT-asp.net-react\Caider-backend\CaiderBackend\obj\Debug\net10.0\compressed\g8154d3775-{0}-6bnpstz450-6bnpstz450.gz
+D:\Caider-IoT-asp.net-react\Caider-backend\CaiderBackend\obj\Debug\net10.0\compressed\xckck5tu31-{0}-69kjnsiwqx-69kjnsiwqx.gz

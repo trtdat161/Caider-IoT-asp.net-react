@@ -50,6 +50,7 @@ export function Welcome() {
     checkAdmin();
 
     return () => {
+      // cleanup function => (CHỈ USEFFECT MỚI HIỂU)
       isMounted = false;
       if (timeoutId) {
         clearTimeout(timeoutId);

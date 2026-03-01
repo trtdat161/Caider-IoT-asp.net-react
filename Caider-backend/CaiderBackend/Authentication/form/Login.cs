@@ -1,6 +1,7 @@
 ﻿using CaiderBackend.data;
 using CaiderBackend.Models;
 using CaiderProject.Authen;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Runtime.CompilerServices;
 
@@ -10,7 +11,7 @@ namespace CaiderBackend.Authentication.form
     {
         public static void LoginApi(this WebApplication app)
         {
-            app.MapPost("/api/auth/login", async (DataContext db, string username, string password, JwtTokenService jwt)
+            app.MapPost("/api/auth/login", async (DataContext db, [FromBody] User request, JwtTokenService jwt)
                 =>
             {
                 // check xem có thằng admin chưa
@@ -29,7 +30,7 @@ namespace CaiderBackend.Authentication.form
                  check username và password(BRYPT)
                  báo lỗi chung chung để gọi là đúng nghiệp vụ, ko báo rõ username hay password
                  */
-                if (admin.Username != username)
+                if (admin.Username != request.Username)
                 {
                     return Results.Json(new
                     {
@@ -40,7 +41,7 @@ namespace CaiderBackend.Authentication.form
                     );
                 }
 
-                var isPasswordValid = BCrypt.Net.BCrypt.Verify(password, admin.Password);// true false
+                var isPasswordValid = BCrypt.Net.BCrypt.Verify(request.Password, admin.Password);// true false
                 if (!isPasswordValid)
                 {
                     return Results.Json(new

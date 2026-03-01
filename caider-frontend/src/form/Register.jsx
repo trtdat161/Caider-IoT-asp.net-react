@@ -24,7 +24,7 @@ export function Register() {
     });
   };
 
-  const handleSubmit =  async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     // validate
     const newErrors = { username: "", email: "", password: "" };
@@ -47,7 +47,7 @@ export function Register() {
     if (!form.password) {
       newErrors.password = "Password không được để trống";
     } else if (form.password.length < 6) {
-      newErrors.password = "Password tối đa 6 ký tự";
+      newErrors.password = "Password ít nhất 6 ký tự";
     } else if (!/(?=.*[a-z])/.test(form.password)) {
       newErrors.password = "Password phải có ít nhất 1 chữ thường";
     } else if (!/(?=.*[A-Z])/.test(form.password)) {
@@ -76,7 +76,9 @@ export function Register() {
         navigate("/login");
       }
     } catch (error) {
-      console.log("lỗi: " + error);
+      console.log("Full error:", error);
+      console.log("Status:", error.response?.status);
+      console.log("Data:", error.response?.data);
     }
   };
 

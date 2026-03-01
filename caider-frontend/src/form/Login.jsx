@@ -1,16 +1,19 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "../css/login.css";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 export function Login() {
-  const [form, setForm] = [
-    {
-      username: "",
-      password: "",
-    },
-  ];
-  const [errors, setErrors] = useState[{}];
+  const [done, setDone] = useState(false);
+  const [loginError, setLoginError] = useState("");
+  const [loading, setLoading] = useState(false);
+  const timeRef = useRef(null); // tạo 1 useRef để lưu lại giá trị id của setTimeout, tránh bị lỗi khi component unmount mà timeout vẫn chạy
+
+  const [form, setForm] = useState({
+    username: "",
+    password: "",
+  });
+  const [errors, setErrors] = useState({});
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -29,14 +32,14 @@ export function Login() {
     if (!form.username) {
       newErrors.username = "username không được để trống !";
     } else if (form.username.length < 4) {
-      newErrors.username = "username phải hơn 4 ký tự !";
+      newErrors.username = "username ít nhất 4 ký tự !";
     }
 
     // Password
     if (!form.password) {
       newErrors.password = "Password không được để trống";
     } else if (form.password.length < 6) {
-      newErrors.password = "Password tối đa 6 ký tự";
+      newErrors.password = "Password ít nhất 6 ký tự";
     } else if (!/(?=.*[a-z])/.test(form.password)) {
       newErrors.password = "Password phải có ít nhất 1 chữ thường";
     } else if (!/(?=.*[A-Z])/.test(form.password)) {
@@ -52,6 +55,7 @@ export function Login() {
     }
 
     try {
+      setLoading(true);
       const response = await axios.post("/api/auth/login", {
         username: form.username,
         password: form.password,
@@ -60,10 +64,26 @@ export function Login() {
       const result = response.data;
 
       localStorage.setItem("access_token", result.access_token); // access_token key của BE
+      setDone(true);
+      setLoginError("");
+      timeRef.current = setTimeout(() => {
+        navigate("/dashboard");
+      }, 2300);
     } catch (err) {
       console.log("lỗi: " + err.error);
+      setLoginError(" username or password faild");
+      setDone(false);
+    } finally {
+      setLoading(false); // dù login thành công hay thất bại thì cũng phải tắt loading
     }
   };
+
+  // cleanup function để clear timeout khi component unmount, tránh lỗi setState trên component đã unmount
+  useEffect(() => {
+    return () => {
+      clearTimeout(timeRef.current);
+    };
+  }, []);
 
   return (
     <>
@@ -80,13 +100,16 @@ export function Login() {
             <br />
             <input
               type="text"
-              id="username"
+              name="username"
+              value={form.username}
               placeholder="username"
               className="form-control"
               onChange={handleChange}
             />
-            {errorUsername && (
-              <span className="error-message text-danger">{errorUsername}</span>
+            {errors.username && (
+              <span className="error-message text-danger">
+                {errors.username}
+              </span>
             )}
           </div>
 
@@ -97,20 +120,33 @@ export function Login() {
             <br />
             <input
               type="password"
-              id="password"
+              name="password"
+              value={form.password}
               placeholder="password"
               className="form-control"
               onChange={handleChange}
             />
-            {errorPassword && (
-              <span className="error-message text-danger">{errorPassword}</span>
+            {errors.password && (
+              <span className="error-message text-danger">
+                {errors.password}
+              </span>
             )}
           </div>
           <div className="text-center">
             <button type="submit" className="w-100 mt-2">
-              login
+              {loading ? "Logging in..." : "Login"}
             </button>
           </div>
+          {done && (
+            <div className="alert alert-success mt-3" role="alert">
+              Login successful!
+            </div>
+          )}
+          {loginError && (
+            <div className="alert alert-danger mt-3" role="alert">
+              {loginError}
+            </div>
+          )}
         </form>
       </div>
     </>

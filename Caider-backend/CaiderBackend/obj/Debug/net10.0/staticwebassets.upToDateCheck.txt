@@ -1,0 +1,9 @@
+wwwroot\assets\index-CprBgUpY.css
+wwwroot\assets\index-DjxZZgBc.js
+wwwroot\assets\robot-BHtvMNIa.jpg
+wwwroot\index.html
+wwwroot\vite.svg
+D:\Caider-IoT-asp.net-react\Caider-backend\CaiderBackend\wwwroot\assets\index-CprBgUpY.css
+D:\Caider-IoT-asp.net-react\Caider-backend\CaiderBackend\wwwroot\assets\index-DjxZZgBc.js
+D:\Caider-IoT-asp.net-react\Caider-backend\CaiderBackend\wwwroot\index.html
+D:\Caider-IoT-asp.net-react\Caider-backend\CaiderBackend\wwwroot\vite.svg

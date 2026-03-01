@@ -32,11 +32,13 @@ builder.Services.AddCors(opt =>
     {
         policy.WithOrigins("http://localhost:5173", "http://localhost:5174") // chỉ cho pháp 2 url này call api
               .AllowAnyHeader() // Cho phép gửi bất kỳ header nào (Authorization, Content-Type...)
-              .AllowAnyMethod(); // // Cho phép GET, POST, PUT, DELETE...
+              .AllowAnyMethod(); // Cho phép GET, POST, PUT, DELETE...
     });
 });
 
 var app = builder.Build();
+app.UseDefaultFiles();   // Tự tìm index.html
+app.UseStaticFiles();    // Cho phép serve file trong wwwroot
 
 
 var micro = "api/microcontrollers";
@@ -649,6 +651,7 @@ app.MapDelete($"{motor}/{{id}}/permanent", async (int id, DataContext db) =>
     }
 }).RequireAuthorization();
 
+app.MapFallbackToFile("index.html");
 app.Run();
 
 // DTO
