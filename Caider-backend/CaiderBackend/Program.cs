@@ -31,6 +31,7 @@ builder.Services.AddCors(opt =>
     opt.AddPolicy("reactApp", policy => // dùng policy tạo tên là reactApp
     {
         policy.WithOrigins("http://localhost:5173", "http://localhost:5174") // chỉ cho pháp 2 url này call api
+              .AllowCredentials() // Cho phép gửi cookie (nếu có)
               .AllowAnyHeader() // Cho phép gửi bất kỳ header nào (Authorization, Content-Type...)
               .AllowAnyMethod(); // Cho phép GET, POST, PUT, DELETE...
     });

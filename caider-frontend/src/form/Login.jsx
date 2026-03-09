@@ -7,7 +7,11 @@ export function Login() {
   const [done, setDone] = useState(false);
   const [loginError, setLoginError] = useState("");
   const [loading, setLoading] = useState(false);
-  const timeRef = useRef(null); // tạo 1 useRef để lưu lại giá trị id của setTimeout, tránh bị lỗi khi component unmount mà timeout vẫn chạy
+  const timeRef = useRef(null);
+  /*  
+  tạo 1 useRef để lưu lại giá trị id của setTimeout,
+  tránh bị lỗi khi component unmount mà timeout vẫn chạy
+  */
 
   const [form, setForm] = useState({
     username: "",
@@ -61,9 +65,17 @@ export function Login() {
         password: form.password,
       });
       console.log("data: " + response.data);
-      const result = response.data;
+      // const result = response.data;
 
-      localStorage.setItem("access_token", result.access_token); // access_token key của BE
+      // localStorage.setItem("access_token", result.access_token); // access_token key của BE
+      // console.log("Saved token:", localStorage.getItem("access_token"));
+
+      // dùng cookie
+      axios.defaults.withCredentials = true;
+      /* 
+      để axios tự động gửi cookie kèm theo mỗi request sau này
+      Thuộc tính bật/tắt việc gửi kèm cookie trong mỗi request => true là bật, false là tắt
+      */
       setDone(true);
       setLoginError("");
       timeRef.current = setTimeout(() => {
