@@ -7,7 +7,7 @@ using CaiderBackend.Authentication;
 
 namespace CaiderProject.Authen
 {
-    /* ---------- cấu hình jwt --------- */
+    // ***************************-> Cấu hình Authentication Middleware
     public static class JwtServiceExtensions
     {
         public static IServiceCollection AddJwtAuthentication(this IServiceCollection services, IConfiguration configuration)
@@ -37,6 +37,16 @@ namespace CaiderProject.Authen
                 /*  Kiểu xác thực JWT Bearer (bearer token là token được gửi trong header Authorization của HTTP request,
                  *  "Bearer" = Người mang token, ai mang token hợp lệ thì được vào) */
                 {
+                    // ------------- đọc token từ cookie do đang cấu hình jwt lưu token vào cookie ------------
+                    options.Events = new JwtBearerEvents
+                    {
+                        OnMessageReceived = context =>
+                        {
+                            context.Token = context.Request.Cookies["access_token"];
+                            return Task.CompletedTask;
+                        }
+                    };
+
                     options.TokenValidationParameters = new TokenValidationParameters
                     {
                         ValidateIssuer = true, // xác thực token phải do nhà phát hành hợp lệ không, nếu ko có thì token app nào cũng hợp lệ

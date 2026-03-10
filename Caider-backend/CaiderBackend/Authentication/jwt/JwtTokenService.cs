@@ -6,6 +6,7 @@ using CaiderBackend.Authentication;
 
 namespace CaiderProject.Authen
 {
+    // **************************> đây là nơi cấu hình sinh ra token
     public class JwtTokenService
     {
         private readonly JwtOption _options;

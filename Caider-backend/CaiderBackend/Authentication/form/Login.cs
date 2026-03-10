@@ -9,6 +9,9 @@ using System.Runtime.CompilerServices;
 
 namespace CaiderBackend.Authentication.form
 {
+    /*
+     (HttpContext) là đối tượng đại diện cho toàn bộ HTTP request/response
+     */
     public static class Login
     {
         public static void LoginApi(this WebApplication app)
@@ -54,7 +57,7 @@ namespace CaiderBackend.Authentication.form
                     statusCode: StatusCodes.Status401Unauthorized  // 401
                     );
                 }
-                // ================ trả về token =================
+                // ================ trả về token(dạng thô json) =================
 
                 //var token = jwt.GenerateToken();
                 //return Results.Ok(new // 200
@@ -63,7 +66,6 @@ namespace CaiderBackend.Authentication.form
                 //});
 
                 var token = jwt.GenerateToken();
-
                 // dùng cookie để lưu token
                 httpContext.Response.Cookies.Append("access_token", token, new CookieOptions
                 {
@@ -78,6 +80,20 @@ namespace CaiderBackend.Authentication.form
                     message = "login success"
                 });
             }).AllowAnonymous();// cho phép ko cần auth vẫn gọi đc do login ban đầy lấy đâu ra token
+        }
+
+        // với method logout chỉ đơn giản là logout ko có LinQ hay gì nên ko xử lý bất đồng bộ
+        public static void LogoutApi(this WebApplication app)
+        {
+            app.MapPost("/api/auth/logout", (HttpContext httpContext) =>
+            {
+                httpContext.Response.Cookies.Delete("access_token");
+                // logout xóa cookie vì token đag gửi kèm trong nó, tức trình duyệt bây h ko lưu cookie này nữa
+                return Results.Ok(new
+                {
+                    message = "logout success"
+                });
+            }).RequireAuthorization();
         }
     }
 }

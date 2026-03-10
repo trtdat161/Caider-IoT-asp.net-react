@@ -1,5 +1,13 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
+// import axios from "axios";
+
+// cấu hình kèm cookie cho global
+// axios.defaults.withCredentials = true;
+/* 
+để axios tự động gửi cookie kèm theo mỗi request sau này
+Thuộc tính bật/tắt việc gửi kèm cookie trong mỗi request => true là bật, false là tắt
+*/
 
 import { Dashboard } from "./Dashboard.jsx";
 import { BrowserRouter, Routes, Route } from "react-router-dom"; // bộ 3 của react-router-dom

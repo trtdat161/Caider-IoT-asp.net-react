@@ -70,12 +70,6 @@ export function Login() {
       // localStorage.setItem("access_token", result.access_token); // access_token key của BE
       // console.log("Saved token:", localStorage.getItem("access_token"));
 
-      // dùng cookie
-      axios.defaults.withCredentials = true;
-      /* 
-      để axios tự động gửi cookie kèm theo mỗi request sau này
-      Thuộc tính bật/tắt việc gửi kèm cookie trong mỗi request => true là bật, false là tắt
-      */
       setDone(true);
       setLoginError("");
       timeRef.current = setTimeout(() => {
