@@ -10,8 +10,8 @@ ProtectedRoute chạy trước
       
 gọi API kiểm tra login
       
-Nếu đã login → cho vào trang
-Nếu chưa login → redirect về /login
+Nếu đã login cho vào trang
+Nếu chưa login redirect về /login
 */
 
 export function ProtectedRoute({ children }) {
