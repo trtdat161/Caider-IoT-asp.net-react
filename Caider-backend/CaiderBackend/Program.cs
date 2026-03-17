@@ -64,6 +64,7 @@ app.RegisterApi(); // đăng ký api register
 app.LoginApi(); // đăng ký api login
 app.LogoutApi();// đăng ký api logout
 app.BootstrapApi();// đăng ký kiểm tra có admin
+app.CheckAuthApi();// midleware
 
 app.MapControllers();
 

@@ -25,6 +25,7 @@ import { Login } from "./form/Login.jsx";
 import { Register } from "./form/Register.jsx";
 import { ForgotPassword } from "./form/ForgotPassword.jsx";
 import { Welcome } from "./Welcome.jsx";
+import { ProtectedRoute } from "./Auth/ProtectedRoute.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -35,9 +36,30 @@ createRoot(document.getElementById("root")).render(
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/forgot" element={<ForgotPassword />} />
-        <Route path="/dashboard" element={<Dashboard />} />
+        {/* <Route path="/dashboard" element={<Dashboard />} />  dòng này là ban đầu chưa có midleware */}
+
+        {/* bọc component cần midleware vào trong */}
+        <Route
+          path="/dashboard"
+          element={
+            <ProtectedRoute>
+              <Dashboard />
+            </ProtectedRoute>
+          }
+        />
+
         {/* ----- Outlet dùng phải bọc mấy thằng con bên trong như này ----- */}
-        <Route path="/manage" element={<DashboardManage />}>
+
+        {/* <Route path="/manage" element={<DashboardManage />}> dòng này là ban đầu chưa có midleware
+        bảo vệ luôn cả dashboard này tránh ko cần đi qua dash chính mà gõ url */}
+        <Route
+          path="/manage"
+          element={
+            <ProtectedRoute>
+              <DashboardManage />
+            </ProtectedRoute>
+          }
+        >
           <Route index element={<ManagehardWare />} />
           <Route path="hardware" element={<ManagehardWare />} />
           <Route path="microcontroller" element={<Microcontroller />} />

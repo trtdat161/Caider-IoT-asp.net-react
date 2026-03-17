@@ -12,16 +12,30 @@ export function Sidebar() {
     <>
       {/* Nút mở menu trên mobile - chỉ hiện dưới màn hình lớn (lg) */}
       <button
-        className="btn btn-primary position-fixed top-0 start-0 m-3 z-3 d-lg-none"
+        className="btn position-fixed top-0 start-0 m-2 z-3 d-lg-none menu-toggle-btn"
         onClick={() => setIsOpen(!isOpen)}
         style={{
-          background: "rgba(0, 240, 255, 0.3)",
+          background: "rgba(0, 240, 255, 0.25)",
           border: "1px solid #00f0ff",
-          fontSize: "1.5rem", // <-- Chỉnh kích thước nút menu
-          padding: "0.8rem",
+          borderRadius: "0.5rem",
+          padding: "0.5rem 0.6rem",
+          width: "45px",
+          height: "45px",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          transition: "all 0.3s ease",
         }}
+        title={isOpen ? "Close Menu" : "Open Menu"}
       >
-        {isOpen ? "X" : "|||"}
+        <i
+          className={`bi ${isOpen ? "bi-x" : "bi-list"}`}
+          style={{
+            fontSize: "1.3rem",
+            color: "#00f0ff",
+            fontWeight: "bold",
+          }}
+        ></i>
       </button>
 
       {/* Lớp phủ tối khi mở sidebar trên mobile */}

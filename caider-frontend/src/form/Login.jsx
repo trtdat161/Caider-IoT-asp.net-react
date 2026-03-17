@@ -73,7 +73,7 @@ export function Login() {
       setDone(true);
       setLoginError("");
       timeRef.current = setTimeout(() => {
-        navigate("/dashboard");
+        navigate("/dashboard", { replace: true });
       }, 2300);
     } catch (err) {
       console.log("lỗi: " + err.error);
@@ -144,7 +144,7 @@ export function Login() {
             </button>
           </div>
           {done && (
-            <div className="alert alert-success mt-3" role="alert">
+            <div className="alert alert-success mt-3 text-center" role="alert">
               Login successful!
             </div>
           )}

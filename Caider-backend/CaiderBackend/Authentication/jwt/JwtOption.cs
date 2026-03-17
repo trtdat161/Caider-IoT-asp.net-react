@@ -24,12 +24,12 @@ sau đó: Bind từ appsettings.json
   "Key": "abc123",
   "Issuer": "Caider",
   "Audience": "Client",
-  "DurationInMinutes": 60
+  "DurationInMinutes": 10
 }
 
 .NET sẽ:
 Ghi đè "" → "abc123"
-Ghi đè 0 → 60
+Ghi đè 0 → 10
 
 == >>> Lúc này mới là giá trị thật
 

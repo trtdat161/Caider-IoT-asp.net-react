@@ -103,7 +103,8 @@ export function Dashboard() {
       const result = response.data;
       console.log("message: " + result.message);
       if (result) {
-        navigate("/login");
+        navigate("/login", { replace: true });
+        // về cơ bản thì ko cần { replace: true } cũng đc vì component ProtectedRoute đã check rồi nhưng để mượt UI thì nên có
       }
     } catch (error) {
       alert(`Lỗi khi logout: ${error.message}`);
