@@ -659,6 +659,11 @@ app.MapDelete($"{motor}/{{id}}/permanent", async (int id, DataContext db) =>
 }).RequireAuthorization();
 
 app.MapFallbackToFile("index.html");
+
+// thêm khi deploy 
+var port = Environment.GetEnvironmentVariable("PORT") ?? "10000";
+app.Urls.Add($"http://0.0.0.0:{port}");
+
 app.Run();
 
 // DTO

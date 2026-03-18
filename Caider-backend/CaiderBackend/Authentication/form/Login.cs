@@ -71,7 +71,7 @@ namespace CaiderBackend.Authentication.form
                 {
                     HttpOnly = true,// Trình duyệt cấm JavaScript đọc cookie này, Nếu false Hacker nhúng script lạ vào, chạy document.cookie là lấy được token
                     Secure = false, // false khi dev vì localhost http, true khi deploy production
-                    SameSite = SameSiteMode.Strict,// Có tác dụng: Chống tấn công **CSRF** (Cross-Site Request Forgery) CSRF : Hacker tạo 1 trang web giả, dụ click vào → trang đó tự gửi request đến BE của mày kèm cookie → BE tưởng là mày gửi
+                    SameSite = SameSiteMode.Lax,// Có tác dụng: Chống tấn công **CSRF** (Cross-Site Request Forgery) CSRF : Hacker tạo 1 trang web giả, dụ click vào -> trang đó tự gửi request đến BE của admin kèm cookie -> BE tưởng là admin gửi
                     Expires = DateTimeOffset.UtcNow.AddMinutes(60) // Cookie **tự xóa** sau 60 phút
                 });
 
