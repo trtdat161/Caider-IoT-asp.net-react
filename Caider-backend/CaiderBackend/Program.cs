@@ -16,14 +16,18 @@ builder.Services.AddOpenApi(); // Để có Swagger UI test API
 builder.Services.AddJwtAuthentication(builder.Configuration); // Đăng ký JWT Authentication
 
 /*------------- đăng ký DataContext ------------*/
-builder.Services.AddDbContext<DataContext>(options =>
-    options.UseSqlServer(
-        builder.Configuration.GetConnectionString("DefaultConnection")
-    )
+//builder.Services.AddDbContext<DataContext>(options =>
+//    options.UseSqlServer(
+//        builder.Configuration.GetConnectionString("DefaultConnection")
+//    )
+//); ====> code lúc chưa triển khai
+
+builder.Services.AddDbContext<DataContext>(options => // code sau khi triển khai
+    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"))
 );
 
 /* đăng ký mqtt services, MQTT client là luồng kết nối dài (persistent connection), 
-không tạo đi tạo lại cho mỗi request là lý do dùng AddSingleton */ 
+không tạo đi tạo lại cho mỗi request là lý do dùng AddSingleton */
 builder.Services.AddSingleton<MqttService>();
 /* ------------ đăng ký cors để gọi api --------- */
 builder.Services.AddCors(opt =>
