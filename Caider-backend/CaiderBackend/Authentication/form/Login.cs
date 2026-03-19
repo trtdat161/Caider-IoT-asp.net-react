@@ -27,7 +27,7 @@ namespace CaiderBackend.Authentication.form
                 }
 
                 /*
-                 check username và password(BRYPT)
+                 check username và password(BCRYPT)
                  báo lỗi chung chung để gọi là đúng nghiệp vụ, ko báo rõ username hay password
                  */
                 if (admin.Username != request.Username)
