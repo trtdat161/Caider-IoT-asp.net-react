@@ -24,10 +24,10 @@ export function Microcontroller() {
   const data = async (page = 1) => {
     try {
       const response = await axios.get(
-        `/api/microcontrollers?pageNumber=${page}`
+        `/api/microcontrollers?pageNumber=${page}`,
       );
-      console.log(response.data); // debug
 
+      console.log(response.data); // debug
       const result = response.data;
       setMicro(result.items || []); // hiển thị danh sách item
       setTotalPages(Math.ceil(result.cntTotal / result.pageSize)); // Tính tổng số trang
@@ -55,7 +55,7 @@ export function Microcontroller() {
   };
 
   const filteMicro = micro.filter((item) =>
-    item.name.toLowerCase().includes(search.toLowerCase())
+    item.name.toLowerCase().includes(search.toLowerCase()),
   );
 
   useEffect(() => {
@@ -116,35 +116,33 @@ export function Microcontroller() {
           <tbody>
             {filteMicro.map((item, index) => {
               return (
-                <>
-                  <tr key={item.id}>
-                    <td className="text-center">{index + 1}</td>
-                    <td className="text-center">{item.name}</td>
-                    <td className="text-center">
-                      {item.note ? item.note : "No note"}
-                    </td>
-                    <td className="text-center">
-                      <button
-                        className="btn btn-danger"
-                        onClick={() => deletes(item.id)} // dùng => để khi ấn mới xóa
-                      >
-                        Delete
-                      </button>
-                    </td>
-                    <td>
-                      <button
-                        className="btn btn-primary"
-                        onClick={() =>
-                          navigate(
-                            `/manage/add-or-up-microcontroller/${item.id}`
-                          )
-                        }
-                      >
-                        Edit
-                      </button>
-                    </td>
-                  </tr>
-                </>
+                <tr key={item.id}>
+                  <td className="text-center">{index + 1}</td>
+                  <td className="text-center">{item.name}</td>
+                  <td className="text-center">
+                    {item.note ? item.note : "No note"}
+                  </td>
+
+                  <td className="text-center">
+                    <button
+                      className="btn btn-danger"
+                      onClick={() => deletes(item.id)}
+                    >
+                      Delete
+                    </button>
+                  </td>
+
+                  <td>
+                    <button
+                      className="btn btn-primary"
+                      onClick={() =>
+                        navigate(`/manage/add-or-up-microcontroller/${item.id}`)
+                      }
+                    >
+                      Edit
+                    </button>
+                  </td>
+                </tr>
               );
             })}
           </tbody>

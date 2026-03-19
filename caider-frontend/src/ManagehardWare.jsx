@@ -65,18 +65,25 @@ export function ManagehardWare() {
   return (
     <>
       <main>
-        <div className="d-flex align-items-center justify-content-between gap-3 m-2 border border-white rounded p-2">
-          <div>
-            <i className="bi bi-robot fs-1 text-white"></i>
-            <span className="fs-1 fw-semibold text-white p-3">
-              CAIDER HARDWARE MANAGEMENT
+        <div className="hardware-header d-flex align-items-center justify-content-between gap-3 flex-wrap">
+          <div className="d-flex align-items-center gap-2 flex-wrap">
+            <i
+              className="bi bi-robot text-white"
+              style={{ fontSize: "2.5rem" }}
+            ></i>
+            <span
+              className="fw-semibold text-white"
+              style={{ fontSize: "clamp(1.2rem, 5vw, 2rem)" }}
+            >
+              CAIDER HARDWARE
             </span>
           </div>
           <button
             onClick={() => navigate("/dashboard")}
-            className="btn btn-secondary"
+            className="btn btn-sm btn-outline-light"
+            style={{ whiteSpace: "nowrap" }}
           >
-            Home
+            <i className="bi bi-house"></i> Home
           </button>
         </div>
         <div className="info-hardware p-1 mt-3 rounded-2">
@@ -96,127 +103,182 @@ export function ManagehardWare() {
           )}
 
           <div className="row g-4">
-            <div className="col-md-3 text-center">
+            <div className="col-12 col-sm-6 col-lg-3">
               <div
-                className="card h-100 border-0 shadow-sm"
+                className="card h-100 border-0 hardware-card"
                 style={{
                   background:
-                    "linear-gradient(135deg, #14a1ffff 0%, #3a3a3aff 100%)",
+                    "linear-gradient(135deg, rgb(0, 28, 151) 0%, rgb(158, 158, 158) 100%)",
                   color: "white",
+                  cursor: "pointer",
                 }}
               >
-                <div className="card-body d-flex flex-column justify-content-center py-4">
-                  <div className="mb-3">
+                <div className="card-body d-flex flex-column justify-content-center py-5">
+                  <div className="mb-4">
                     <div
                       className="bg-white bg-opacity-25 rounded-circle mx-auto d-flex align-items-center justify-content-center"
-                      style={{ width: "60px", height: "60px" }}
+                      style={{ width: "70px", height: "70px" }}
                     >
-                      <i className="bi bi-cpu fs-2"></i>
+                      <i className="bi bi-cpu" style={{ fontSize: "2rem" }}></i>
                     </div>
                   </div>
-                  <div className="fw-semibold mb-2">Microcontroller</div>
-                  <span className="fs-1 fw-bold">{countMicro}</span>
+                  <div
+                    className="fw-semibold mb-3"
+                    style={{ fontSize: "1.1rem" }}
+                  >
+                    Microcontroller
+                  </div>
+                  <span className="fw-bold" style={{ fontSize: "3rem" }}>
+                    {countMicro}
+                  </span>
                 </div>
               </div>
             </div>
 
-            <div className="col-md-3 text-center">
+            <div className="col-12 col-sm-6 col-lg-3">
               <div
-                className="card h-100 border-0 shadow-sm"
+                className="card h-100 border-0 hardware-card"
                 style={{
                   background:
-                    "linear-gradient(135deg, #00df70ff 0%, #474747ff 100%)",
+                    "linear-gradient(135deg, rgb(143, 231, 0) 0%, #474747ff 100%)",
                   color: "white",
+                  cursor: "pointer",
                 }}
               >
-                <div className="card-body d-flex flex-column justify-content-center py-4">
-                  <div className="mb-3">
+                <div className="card-body d-flex flex-column justify-content-center py-5">
+                  <div className="mb-4">
                     <div
                       className="bg-white bg-opacity-25 rounded-circle mx-auto d-flex align-items-center justify-content-center"
-                      style={{ width: "60px", height: "60px" }}
+                      style={{ width: "70px", height: "70px" }}
                     >
-                      <i className="bi bi-diagram-3 fs-2"></i>
+                      <i
+                        className="bi bi-diagram-3"
+                        style={{ fontSize: "2rem" }}
+                      ></i>
                     </div>
                   </div>
-                  <div className="fw-semibold mb-2">Expansive Board</div>
-                  <span className="fs-1 fw-bold">{countExp}</span>
+                  <div
+                    className="fw-semibold mb-3"
+                    style={{ fontSize: "1.1rem" }}
+                  >
+                    Expansive Board
+                  </div>
+                  <span className="fw-bold" style={{ fontSize: "3rem" }}>
+                    {countExp}
+                  </span>
                 </div>
               </div>
             </div>
 
-            <div className="col-md-3 text-center">
+            <div className="col-12 col-sm-6 col-lg-3">
               <div
-                className="card h-100 border-0 shadow-sm"
+                className="card h-100 border-0 hardware-card"
                 style={{
                   background:
                     "linear-gradient(135deg, #da2c00ff 30%, #414141ff 100%)",
                   color: "#ffffffff",
+                  cursor: "pointer",
                 }}
               >
-                <div className="card-body d-flex flex-column justify-content-center py-4">
-                  <div className="mb-3">
+                <div className="card-body d-flex flex-column justify-content-center py-5">
+                  <div className="mb-4">
                     <div
                       className="bg-white bg-opacity-50 rounded-circle mx-auto d-flex align-items-center justify-content-center"
-                      style={{ width: "60px", height: "60px" }}
+                      style={{ width: "70px", height: "70px" }}
                     >
-                      <i className="bi bi-arrow-repeat fs-2"></i>
+                      <i
+                        className="bi bi-arrow-repeat"
+                        style={{ fontSize: "2rem" }}
+                      ></i>
                     </div>
                   </div>
-                  <div className="fw-semibold mb-2">Servo</div>
-                  <span className="fs-1 fw-bold">{countServos}</span>
+                  <div
+                    className="fw-semibold mb-3"
+                    style={{ fontSize: "1.1rem" }}
+                  >
+                    Servo
+                  </div>
+                  <span className="fw-bold" style={{ fontSize: "3rem" }}>
+                    {countServos}
+                  </span>
                 </div>
               </div>
             </div>
 
-            <div className="col-md-3 text-center">
+            <div className="col-12 col-sm-6 col-lg-3">
               <div
-                className="card h-100 border-0 shadow-sm"
+                className="card h-100 border-0 hardware-card"
                 style={{
                   background:
                     "linear-gradient(135deg, #0e9eb1ff 0%, #424242ff 100%)",
                   color: "white",
+                  cursor: "pointer",
                 }}
               >
-                <div className="card-body d-flex flex-column justify-content-center py-4">
-                  <div className="mb-3">
+                <div className="card-body d-flex flex-column justify-content-center py-5">
+                  <div className="mb-4">
                     <div
                       className="bg-white bg-opacity-25 rounded-circle mx-auto d-flex align-items-center justify-content-center"
-                      style={{ width: "60px", height: "60px" }}
+                      style={{ width: "70px", height: "70px" }}
                     >
-                      <i className="bi bi-gear fs-2"></i>
+                      <i
+                        className="bi bi-gear"
+                        style={{ fontSize: "2rem" }}
+                      ></i>
                     </div>
                   </div>
-                  <div className="fw-semibold mb-2">Motor</div>
-                  <span className="fs-1 fw-bold">{countMotors}</span>
+                  <div
+                    className="fw-semibold mb-3"
+                    style={{ fontSize: "1.1rem" }}
+                  >
+                    Motor
+                  </div>
+                  <span className="fw-bold" style={{ fontSize: "3rem" }}>
+                    {countMotors}
+                  </span>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <hr />
+        <hr
+          className="my-5"
+          style={{ borderColor: "#00f0ff", borderWidth: "2px" }}
+        />
         {/* ------------- video --------------- */}
-        <div className="mt-4 p-2">
-          <div className="position-relative">
+        <footer className="mt-5 pb-5">
+          <div className="position-relative video-container">
             <img
               src="https://i.makeagif.com/media/5-18-2021/UAoFDI.gif"
               alt="CAIDER Futuristic Robot Demo"
-              className="w-100 rounded shadow-lg"
+              className="w-100 rounded"
               style={{
                 objectFit: "cover",
-                height: "50vh",
-                minHeight: "300px",
+                height: "clamp(300px, 50vh, 600px)",
+                boxShadow: "0 0 30px rgba(0, 240, 255, 0.4)",
               }}
             />
-            <div className="position-absolute bottom-0 start-0 end-0 text-center pb-3">
+            <div
+              className="position-absolute bottom-0 start-0 end-0 text-center pb-4"
+              style={{
+                background:
+                  "linear-gradient(to top, rgba(0,0,0,0.8), transparent)",
+                borderRadius: "0 0 0.5rem 0.5rem",
+              }}
+            >
               <p
-                className="text-white fw-bold fs-4 mb-0"
-                style={{ textShadow: "2px 2px 8px black" }}
+                className="text-white fw-bold mb-0"
+                style={{
+                  fontSize: "clamp(1rem, 4vw, 1.5rem)",
+                  textShadow: "0 2px 10px rgba(0, 240, 255, 0.6)",
+                  letterSpacing: "2px",
+                }}
               >
-                Futuristic Robot Demo
+                FUTURISTIC ROBOT DEMO
               </p>
             </div>
           </div>
-        </div>
+        </footer>
       </main>
     </>
   );

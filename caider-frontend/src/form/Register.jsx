@@ -73,7 +73,7 @@ export function Register() {
       const result = response.data;
       if (result) {
         console.log("đăng ký thành công");
-        navigate("/login");
+        navigate("/login", { replace: true });
       }
     } catch (error) {
       console.log("Full error:", error);

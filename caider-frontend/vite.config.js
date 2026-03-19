@@ -16,3 +16,12 @@ export default defineConfig({
 });
 // cấu hình vte dev sever làm trung gian (proxy) để chuyển tiếp các request từ FE đến BE
 // tránh lỗi CORS khi frontend và backend chạy trên các cổng khác nhau
+
+/*
+ * ĐIỀU QUAN TRỌNG:  cấu hình proxy này ko chỉ làm gọn url khi call api mà còn
+  thay đổi cách browser nhìn request, và chính điều đó làm cookie tự gửi
+
+  nên dùng proxy khi dev vì gọi api chuỗi ngắn và
+  5173 → 5173 → 5073
+  Browser chỉ thấy 5173.
+ */

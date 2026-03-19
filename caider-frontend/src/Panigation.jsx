@@ -4,7 +4,6 @@ export function Pagination({ currentPage, totalPage, onPageChange }) {
 
   return (
     <>
-      (
       <div className="d-flex justify-content-center align-items-center mt-5 mb-4 gap-4">
         <button
           className="btn btn-outline-primary px-4"
@@ -26,7 +25,6 @@ export function Pagination({ currentPage, totalPage, onPageChange }) {
           Next »
         </button>
       </div>
-      )
     </>
   );
 }

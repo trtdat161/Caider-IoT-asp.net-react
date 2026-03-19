@@ -7,7 +7,11 @@ export function Login() {
   const [done, setDone] = useState(false);
   const [loginError, setLoginError] = useState("");
   const [loading, setLoading] = useState(false);
-  const timeRef = useRef(null); // tạo 1 useRef để lưu lại giá trị id của setTimeout, tránh bị lỗi khi component unmount mà timeout vẫn chạy
+  const timeRef = useRef(null);
+  /*  
+  tạo 1 useRef để lưu lại giá trị id của setTimeout,
+  tránh bị lỗi khi component unmount mà timeout vẫn chạy
+  */
 
   const [form, setForm] = useState({
     username: "",
@@ -61,13 +65,15 @@ export function Login() {
         password: form.password,
       });
       console.log("data: " + response.data);
-      const result = response.data;
+      // const result = response.data;
 
-      localStorage.setItem("access_token", result.access_token); // access_token key của BE
+      // localStorage.setItem("access_token", result.access_token); // access_token key của BE
+      // console.log("Saved token:", localStorage.getItem("access_token"));
+
       setDone(true);
       setLoginError("");
       timeRef.current = setTimeout(() => {
-        navigate("/dashboard");
+        navigate("/dashboard", { replace: true });
       }, 2300);
     } catch (err) {
       console.log("lỗi: " + err.error);
@@ -138,7 +144,7 @@ export function Login() {
             </button>
           </div>
           {done && (
-            <div className="alert alert-success mt-3" role="alert">
+            <div className="alert alert-success mt-3 text-center" role="alert">
               Login successful!
             </div>
           )}

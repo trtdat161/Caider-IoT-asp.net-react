@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import CaiderScan from "./CaiderScan";
 import "./css/dashboard.css";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 export function Dashboard() {
   const [expansive, setExpansive] = useState("");
@@ -94,6 +95,22 @@ export function Dashboard() {
       alert(`Lỗi khi gửi: ${error.message}`);
     }
   };
+
+  // logout
+  const Logout = async () => {
+    try {
+      const response = await axios.post("/api/auth/logout");
+      const result = response.data;
+      console.log("message: " + result.message);
+      if (result) {
+        navigate("/login", { replace: true });
+        // về cơ bản thì ko cần { replace: true } cũng đc vì component ProtectedRoute đã check rồi nhưng để mượt UI thì nên có
+      }
+    } catch (error) {
+      alert(`Lỗi khi logout: ${error.message}`);
+    }
+  };
+
   useEffect(() => {
     data();
   }, []);
@@ -113,6 +130,15 @@ export function Dashboard() {
                   <button className="gear-btn" onClick={manageHardware}>
                     <span className="me-2">caider manager</span>
                     <i className="bi bi-gear-wide-connected"></i>
+                  </button>
+                  {/* logout */}
+                  <button
+                    className="gear-btn"
+                    onClick={Logout}
+                    title="Logout"
+                    aria-label="Logout"
+                  >
+                    <i className="bi bi-box-arrow-right"></i>
                   </button>
                 </nav>
               </div>

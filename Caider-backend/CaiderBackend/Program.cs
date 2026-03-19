@@ -16,14 +16,18 @@ builder.Services.AddOpenApi(); // Để có Swagger UI test API
 builder.Services.AddJwtAuthentication(builder.Configuration); // Đăng ký JWT Authentication
 
 /*------------- đăng ký DataContext ------------*/
-builder.Services.AddDbContext<DataContext>(options =>
-    options.UseSqlServer(
-        builder.Configuration.GetConnectionString("DefaultConnection")
-    )
+//builder.Services.AddDbContext<DataContext>(options =>
+//    options.UseSqlServer(
+//        builder.Configuration.GetConnectionString("DefaultConnection")
+//    )
+//); ====> code lúc chưa triển khai
+
+builder.Services.AddDbContext<DataContext>(options => // code sau khi triển khai
+    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"))
 );
 
 /* đăng ký mqtt services, MQTT client là luồng kết nối dài (persistent connection), 
-không tạo đi tạo lại cho mỗi request là lý do dùng AddSingleton */ 
+không tạo đi tạo lại cho mỗi request là lý do dùng AddSingleton */
 builder.Services.AddSingleton<MqttService>();
 /* ------------ đăng ký cors để gọi api --------- */
 builder.Services.AddCors(opt =>
@@ -31,6 +35,7 @@ builder.Services.AddCors(opt =>
     opt.AddPolicy("reactApp", policy => // dùng policy tạo tên là reactApp
     {
         policy.WithOrigins("http://localhost:5173", "http://localhost:5174") // chỉ cho pháp 2 url này call api
+              .AllowCredentials() // Cho phép gửi cookie (nếu có)
               .AllowAnyHeader() // Cho phép gửi bất kỳ header nào (Authorization, Content-Type...)
               .AllowAnyMethod(); // Cho phép GET, POST, PUT, DELETE...
     });
@@ -61,7 +66,9 @@ app.UseAuthorization();// use phân quyền
 /* ====== auth api(KHAI BÁO NÀY RA MỚI GỌI ĐƯỢC) ====== */
 app.RegisterApi(); // đăng ký api register
 app.LoginApi(); // đăng ký api login
+app.LogoutApi();// đăng ký api logout
 app.BootstrapApi();// đăng ký kiểm tra có admin
+app.CheckAuthApi();// midleware
 
 app.MapControllers();
 
@@ -652,6 +659,11 @@ app.MapDelete($"{motor}/{{id}}/permanent", async (int id, DataContext db) =>
 }).RequireAuthorization();
 
 app.MapFallbackToFile("index.html");
+
+// thêm khi deploy 
+var port = Environment.GetEnvironmentVariable("PORT") ?? "10000";
+app.Urls.Add($"http://0.0.0.0:{port}");
+
 app.Run();
 
 // DTO

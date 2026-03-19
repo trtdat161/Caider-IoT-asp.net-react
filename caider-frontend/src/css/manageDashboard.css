@@ -1,9 +1,96 @@
 hr {
-  background-color: #f2f2f2;
+  background: linear-gradient(90deg, transparent, #00f0ff, transparent);
   border: none;
-  height: 1.5px;
+  height: 2px;
   margin: 20px 0;
 }
+
+/* Header Styles */
+.hardware-header {
+  background: linear-gradient(
+    135deg,
+    rgba(0, 240, 255, 0.1),
+    rgba(0, 0, 0, 0.3)
+  );
+  border: 1px solid rgba(0, 240, 255, 0.3);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  margin: 1.5rem;
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.hardware-header:hover {
+  box-shadow: 0 0 30px rgba(0, 240, 255, 0.4);
+  background: linear-gradient(
+    135deg,
+    rgba(0, 240, 255, 0.15),
+    rgba(0, 0, 0, 0.4)
+  );
+}
+
+/* Card Hover Effects */
+.hardware-card {
+  border-radius: 1rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  position: relative;
+}
+
+.hardware-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  transition: left 0.4s ease;
+  z-index: 0;
+}
+
+.hardware-card:hover::before {
+  left: 100%;
+}
+
+.hardware-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 12px 30px rgba(0, 240, 255, 0.4);
+}
+
+.hardware-card .card-body {
+  position: relative;
+  z-index: 1;
+}
+
+/* Info Hardware Container */
+.info-hardware {
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(0, 240, 255, 0.2);
+  padding: 2rem;
+  margin: 1.5rem;
+  border-radius: 1rem;
+}
+
+/* Video Container */
+.video-container {
+  border-radius: 1rem;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  margin: 0 1.5rem;
+}
+
+.video-container:hover img {
+  transform: scale(1.03);
+  filter: brightness(1.1);
+}
+
+.video-container img {
+  transition: all 0.3s ease;
+}
+
+/* Old styles - kept for compatibility */
 .info-micro,
 .info-expansive,
 .info-servo,
@@ -12,11 +99,42 @@ hr {
   border-radius: 10px;
   padding: 10px;
   color: white;
-  /* text-align: center; */
-
   box-shadow: 5px 4px 8px 2px rgba(0, 0, 0, 0.2);
   margin: 10px;
   width: 202px;
   font-weight: bold;
   font-size: 0.9rem;
+}
+
+/* Responsive Padding */
+@media (max-width: 768px) {
+  .hardware-header,
+  .info-hardware,
+  .video-container {
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+
+  .hardware-header {
+    padding: 1rem;
+  }
+
+  .hardware-header span {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .hardware-header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hardware-header button {
+    width: 100%;
+  }
+
+  .info-hardware {
+    padding: 1rem;
+  }
 }

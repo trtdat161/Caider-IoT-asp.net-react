@@ -28,7 +28,7 @@ export function Welcome() {
           console.log("Admin tồn tại, tiến hành login");
           timeoutId = setTimeout(() => {
             if (isMounted) {
-              navigate("/login");
+              navigate("/login", { replace: true }); // chặn luôn để browser ko có chỗ để quay lại
             }
           }, time);
         } else {
