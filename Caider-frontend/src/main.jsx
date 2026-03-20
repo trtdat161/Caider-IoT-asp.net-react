@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import axios from "axios";
 
 // cấu hình kèm cookie cho global
-// axios.defaults.withCredentials = true;
+axios.defaults.withCredentials = true;
 /* 
 để axios tự động gửi cookie kèm theo mỗi request sau này
 Thuộc tính bật/tắt việc gửi kèm cookie trong mỗi request => true là bật, false là tắt
