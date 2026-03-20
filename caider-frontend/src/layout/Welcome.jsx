@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { API_URL } from "../config/api";
 
-import "./css/welcome.css";
-import robotBg from "./assets/img/robot.jpg";
+import "../css/welcome.css";
+import robotBg from "../assets/img/robot.jpg";
 
 export function Welcome() {
   const [error, setError] = useState("");
@@ -16,7 +17,7 @@ export function Welcome() {
 
     const checkAdmin = async () => {
       try {
-        const response = await axios.get("/api/auth/bootstrap");
+        const response = await axios.get(`${API_URL}/api/auth/bootstrap`);
 
         if (!isMounted) {
           console.log("Component welcome đã chết, không cập nhật state nữa");

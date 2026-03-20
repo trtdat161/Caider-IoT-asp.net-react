@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import "./css/sidebar.css";
+import "../css/sidebar.css";
 
 export function Sidebar() {
   const [isOpen, setIsOpen] = useState(false); // Trạng thái mở/đóng trên mobile

@@ -1,9 +1,10 @@
 // import { BASE_URL } from "./BaseUrl";
 import React, { useEffect, useState } from "react";
 import CaiderScan from "./CaiderScan";
-import "./css/dashboard.css";
+import "../css/dashboard.css";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { API_URL } from "../config/api";
 
 export function Dashboard() {
   const [expansive, setExpansive] = useState("");
@@ -22,18 +23,15 @@ export function Dashboard() {
     try {
       const [responseExp, responseMicro, responseServos, responseMotors] =
         await Promise.all([
-          fetch("/api/expansiveboards"),
-          fetch("/api/microcontrollers"),
-          fetch("/api/servos"),
-          fetch("/api/motors"),
+          axios.get(`${API_URL}/api/expansiveboards`),
+          axios.get(`${API_URL}/api/microcontrollers`),
+          axios.get(`${API_URL}/api/servos`),
+          axios.get(`${API_URL}/api/motors`),
         ]);
-      const [dataExp, dataMicro, dataServos, dataMotors] = await Promise.all([
-        // phải đúng thứ tự với fetch đẻ tránh bị data đảo ngược
-        responseExp.json(),
-        responseMicro.json(),
-        responseServos.json(),
-        responseMotors.json(),
-      ]);
+      const dataExp = responseExp.data;
+      const dataMicro = responseMicro.data;
+      const dataServos = responseServos.data;
+      const dataMotors = responseMotors.data;
       // những lúc ko ra data ở json ra là biết để còn truy cập đc
       setExpansive(dataExp.items[0].name || "no data");
       setMicro(dataMicro.items[0].name || "no data");
@@ -46,13 +44,10 @@ export function Dashboard() {
 
   const connectCaider = async () => {
     try {
-      const response = await fetch("/api/mqtt/connect", {
-        method: "POST",
-        headers: { "Content-type": "application/json" },
-        body: JSON.stringify({ functionName: "connect" }),
+      const response = await axios.post(`${API_URL}/api/mqtt/connect`, {
+        functionName: "connect",
       });
-      const data = await response.json();
-      if (data.success) {
+      if (response.data.success) {
         setConnect(true);
       } else {
         setConnect(false);
@@ -64,13 +59,10 @@ export function Dashboard() {
   };
   const handleWaveHello = async () => {
     try {
-      const response = await fetch("/api/mqtt/command", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ functionName: "wave" }),
+      const response = await axios.post(`${API_URL}/api/mqtt/command`, {
+        functionName: "wave",
       });
-      const data = await response.json();
-      if (data.success) {
+      if (response.data.success) {
         alert("Cader thực hiện vẫy tay");
       } else {
         alert("Gửi lệnh thất bại!");
@@ -81,12 +73,8 @@ export function Dashboard() {
   };
   const stopWaveHello = async () => {
     try {
-      const response = await fetch("/api/mqtt/stop", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-      });
-      const data = await response.json();
-      if (data.success) {
+      const response = await axios.post(`${API_URL}/api/mqtt/stop`);
+      if (response.data.success) {
         alert("stop caider thành công");
       } else {
         alert("stop không thành công!");
@@ -99,7 +87,7 @@ export function Dashboard() {
   // logout
   const Logout = async () => {
     try {
-      const response = await axios.post("/api/auth/logout");
+      const response = await axios.post(`${API_URL}/api/auth/logout`);
       const result = response.data;
       console.log("message: " + result.message);
       if (result) {

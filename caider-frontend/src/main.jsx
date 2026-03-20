@@ -1,6 +1,7 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-// import axios from "axios";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import axios from "axios";
 
 // cấu hình kèm cookie cho global
 // axios.defaults.withCredentials = true;
@@ -9,22 +10,21 @@ import { createRoot } from "react-dom/client";
 Thuộc tính bật/tắt việc gửi kèm cookie trong mỗi request => true là bật, false là tắt
 */
 
-import { Dashboard } from "./Dashboard.jsx";
-import { BrowserRouter, Routes, Route } from "react-router-dom"; // bộ 3 của react-router-dom
-import { DashboardManage } from "./DashboardManage.jsx";
-import { ManagehardWare } from "./ManagehardWare.jsx";
-import { Microcontroller } from "./Microcontroller.jsx";
-import { Expansiveboard } from "./Expansiveboard.jsx";
-import { Servo } from "./Servo.jsx";
-import { Motor } from "./Motor.jsx";
-import { MicrocontrollerForm } from "./crud/MicrocontrollerForm.jsx";
-import { ExpansiveForm } from "./crud/ExpansiveForm.jsx";
-import { ServoForm } from "./crud/ServoForm.jsx";
-import { MotorForm } from "./crud/MotorForm.jsx";
+import { Welcome } from "./layout/Welcome.jsx";
+import { Dashboard } from "./home/Dashboard.jsx";
+import { DashboardManage } from "./layout/DashboardManage.jsx";
+import { ManagehardWare } from "./dashboard/ManagehardWare.jsx";
+import { Microcontroller } from "./dashboard/Microcontroller.jsx";
+import { Expansiveboard } from "./dashboard/Expansiveboard.jsx";
+import { Motor } from "./dashboard/Motor.jsx";
+import { Servo } from "./dashboard/Servo.jsx";
+import { ExpansiveForm } from "./component/ExpansiveForm.jsx";
+import { MicrocontrollerForm } from "./component/MicrocontrollerForm.jsx";
+import { MotorForm } from "./component/MotorForm.jsx";
+import { ServoForm } from "./component/ServoForm.jsx";
 import { Login } from "./form/Login.jsx";
 import { Register } from "./form/Register.jsx";
 import { ForgotPassword } from "./form/ForgotPassword.jsx";
-import { Welcome } from "./Welcome.jsx";
 import { ProtectedRoute } from "./Auth/ProtectedRoute.jsx";
 
 createRoot(document.getElementById("root")).render(
@@ -37,7 +37,6 @@ createRoot(document.getElementById("root")).render(
         <Route path="/register" element={<Register />} />
         <Route path="/forgot" element={<ForgotPassword />} />
         {/* <Route path="/dashboard" element={<Dashboard />} />  dòng này là ban đầu chưa có midleware */}
-
         {/* bọc component cần midleware vào trong */}
         <Route
           path="/dashboard"
@@ -47,9 +46,7 @@ createRoot(document.getElementById("root")).render(
             </ProtectedRoute>
           }
         />
-
         {/* ----- Outlet dùng phải bọc mấy thằng con bên trong như này ----- */}
-
         {/* <Route path="/manage" element={<DashboardManage />}> dòng này là ban đầu chưa có midleware
         bảo vệ luôn cả dashboard này tránh ko cần đi qua dash chính mà gõ url */}
         <Route
