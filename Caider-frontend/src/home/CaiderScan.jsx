@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import "../css/CaiderScan.css";
+import "../css/caiderScan.css";
 
 export default function CaiderScan() {
   const [particles, setParticles] = useState([]);
