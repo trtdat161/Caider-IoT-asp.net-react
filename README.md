@@ -1,35 +1,31 @@
-# Caider — IoT Control & Management Robot (Admin-only)
+# Caider — IoT Robot Control & Management (Admin Only)
 
-Ngắn gọn: ứng dụng điều khiển và quản lý phần cứng robot Caider (microcontroller, expansive board, servo, motor) và gửi lệnh thời gian thực qua MQTT.
+**Overview:**
+Caider is a web application designed to control and manage the Caider robot hardware, including microcontrollers, expansion boards, servos, and motors. It enables sending real-time commands via MQTT and provides a secure admin-only interface for robot management.
 
-# Tech stack
+## Tech Stack
 
-- Frontend: React + Vite
-- Backend: ASP.NET Core Web API (Minimal API) + EF Core
-- DB: SQL Server
-- IoT: MQTT (broker: broker.hivemq.com:1883)
+- **Frontend:** React + Vite
+- **Backend:** ASP.NET Core Web API (Minimal API) + EF Core
+- **Database:** SQL Server
+- **IoT Communication:** MQTT (`broker.hivemq.com:1883`)
 
-# Quick start
+## Key Features
 
-1. Frontend
-   - cd caider-frontend
-   - npm install
-   - npm run dev
-2. Backend
-   - cấu hình connection string trong `appsettings.json`
-   - cd Caider-backend/CaiderBackend
-   - dotnet restore
-   - dotnet run
-   - hoặc cài Visual Studio tím, cài đặt ASP.NET rồi mở backend .NET của dự án này lên chạy
+- **Real-time Robot Control:** Send commands and receive status updates via MQTT.
+- **Admin-only Access:** Registration and login restricted to a single admin account.
+- **JWT Authentication:** Secure token-based authentication for API requests.
+- **Database Mapping:** EF Core handles mapping between database tables and application models.
+- **Persistent MQTT Service:** Dedicated service for reliable publish/subscribe communication with IoT hardware.
 
-# Notes
+## My Contributions
 
-- Dự án thiết kế cho 1 admin duy nhất: `Register` chỉ cho phép tạo admin khi hệ thống chưa có tài khoản.
-- Authentication: FE đăng nhập → BE trả `access_token` (JWT)
-- Entity mapping: `DataContext` ánh xạ bảng DB -> models (ví dụ `created_at` ↔ `CreatedAt`). Hiện dùng mapping trực tiếp lên entity do schema đơn giản.
-- MQTT: `MqttService` tách riêng vì kết nối persistent (publish/subscribe), broker mặc định là `broker.hivemq.com:1883`.
+- Developed frontend dashboard and real-time control interface using React.
+- Implemented backend APIs and database models in ASP.NET Core with EF Core.
+- Integrated MQTT communication for live robot control.
+- Designed authentication system with JWT for secure admin access.
 
 ## Demo Video
 
-Xem video demo dự án tại đây:
-https://www.youtube.com/watch?v=Fhyi5ZbmBuc
+Watch the full project demo:
+[YouTube Demo](https://www.youtube.com/watch?v=Fhyi5ZbmBuc)
