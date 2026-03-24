@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Navigate } from "react-router-dom";
+import { API_URL } from "../config/api";
 
 /*
 --------- Tạo 1 midleware ở phía Frontend ----------
@@ -22,7 +23,7 @@ export function ProtectedRoute({ children }) {
     // chạy khi component được mount, chạy lần đâu 1 lần khi load trang
     const checkAuth = async () => {
       try {
-        const response = await axios.get("/api/auth/check");
+        const response = await axios.get(`${API_URL}/api/auth/check`);
         console.log("status: " + response.data);
         if (response.data) {
           setIsAuth(true);

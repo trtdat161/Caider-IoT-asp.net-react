@@ -3,7 +3,7 @@ import "../css/addOrUp.css";
 import { LinkPage } from "./LinkPage";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { Navigation } from "lucide-react";
+import { API_URL } from "../config/api";
 
 export function MotorForm() {
   const [error, setError] = useState("");
@@ -18,7 +18,7 @@ export function MotorForm() {
     const data = async () => {
       if (isEditMode) {
         try {
-          const response = await axios.get(`/api/motors/${id}`);
+          const response = await axios.get(`${API_URL}/api/motors/${id}`);
           setName(response.data.name || "");
           setNote(response.data.note || "");
         } catch (error) {
@@ -38,10 +38,13 @@ export function MotorForm() {
     }
     try {
       if (isEditMode) {
-        await axios.put(`/api/motors/${id}`, { name, note });
+        await axios.put(`${API_URL}/api/motors/${id}`, { name, note });
         setSuccess("Motor updated successfully !");
       } else {
-        const response = await axios.post("/api/motors", { name, note });
+        const response = await axios.post(`${API_URL}/api/motors`, {
+          name,
+          note,
+        });
         e.target.reset();
         setError("");
         setName("");

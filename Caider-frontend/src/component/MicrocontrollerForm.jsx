@@ -3,6 +3,7 @@ import "../css/addOrUp.css";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { LinkPage } from "./LinkPage";
+import { API_URL } from "../config/api";
 
 export function MicrocontrollerForm() {
   const [error, setError] = useState("");
@@ -18,7 +19,9 @@ export function MicrocontrollerForm() {
     if (isEditMode) {
       const fetMicro = async () => {
         try {
-          const response = await axios.get(`/api/microcontrollers/${id}`);
+          const response = await axios.get(
+            `${API_URL}/api/microcontrollers/${id}`,
+          );
           setName(response.data.name || "");
           setNote(response.data.note || "");
         } catch (error) {
@@ -38,13 +41,13 @@ export function MicrocontrollerForm() {
     }
     try {
       if (isEditMode) {
-        await axios.put(`/api/microcontrollers/${id}`, {
+        await axios.put(`${API_URL}/api/microcontrollers/${id}`, {
           name,
           note,
         });
-        setSuccess("Microcontroller updated successfully !");
+        setSuccess("Microcontroller update`${API_URL}/api/microcontrollers");
       } else {
-        const response = await axios.post("/api/microcontrollers", {
+        const response = await axios.post(`${API_URL}/api/microcontrollers`, {
           name,
           note,
         });

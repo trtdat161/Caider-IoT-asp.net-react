@@ -3,6 +3,7 @@ import "../css/addOrUp.css";
 
 import { LinkPage } from "./LinkPage";
 import axios from "axios";
+import { API_URL } from "../config/api";
 import { useEffect, useState } from "react";
 
 export function ServoForm() {
@@ -18,7 +19,7 @@ export function ServoForm() {
     if (isEditMode) {
       const fetchServo = async () => {
         try {
-          const response = await axios.get(`/api/servos/${id}`);
+          const response = await axios.get(`${API_URL}/api/servos/${id}`);
           setName(response.data.name || "");
           setNote(response.data.note || "");
         } catch (error) {
@@ -38,10 +39,10 @@ export function ServoForm() {
     }
     try {
       if (isEditMode) {
-        await axios.put(`/api/servos/${id}`, { name, note });
+        await axios.put(`${API_URL}/api/servos/${id}`, { name, note });
         setSuccess("Servo updated successfully !");
       } else {
-        await axios.post("api/servos", { name, note });
+        await axios.post(`${API_URL}/api/servos`, { name, note });
         e.target.reset();
         setError("");
         setName("");

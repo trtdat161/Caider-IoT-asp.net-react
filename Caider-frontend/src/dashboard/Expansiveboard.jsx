@@ -1,8 +1,9 @@
 import { useNavigate } from "react-router-dom";
-import { LinkPage } from "./crud/LinkPage";
+import { LinkPage } from "../component/LinkPage";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { Pagination } from "./Panigation";
+import { API_URL } from "../config/api";
+import { Pagination } from "../layout/Panigation";
 
 export function Expansiveboard() {
   const [expansive, setExpansive] = useState([]);
@@ -17,7 +18,7 @@ export function Expansiveboard() {
   const data = async (page = 1) => {
     try {
       const response = await axios.get(
-        `/api/expansiveboards?pageNumber=${page}`
+        `${API_URL}/api/expansiveboards?pageNumber=${page}`,
       ); // nguy hiểm chết người nếu ko có dấu /api/
       console.log(response.data);
       const result = response.data;
@@ -34,7 +35,7 @@ export function Expansiveboard() {
   // delete
   const deletes = async (id) => {
     try {
-      await axios.delete(`/api/expansiveboards/${id}`);
+      await axios.delete(`${API_URL}/api/expansiveboards/${id}`);
       setExpansive(expansive.filter((item) => item.id !== id));
       console.log("Xóa ok:");
       setDeleteError("");
@@ -46,7 +47,7 @@ export function Expansiveboard() {
 
   // search
   const filterExpansive = expansive.filter((item) =>
-    item.name.toLowerCase().includes(search.toLowerCase())
+    item.name.toLowerCase().includes(search.toLowerCase()),
   );
 
   useEffect(() => {

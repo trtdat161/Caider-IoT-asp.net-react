@@ -3,6 +3,7 @@ import { LinkPage } from "./LinkPage";
 import "../css/addOrUp.css";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
+import { API_URL } from "../config/api";
 
 export function ExpansiveForm() {
   const [success, setSuccess] = useState("");
@@ -21,7 +22,7 @@ export function ExpansiveForm() {
   useEffect(() => {
     const fetchMicro = async () => {
       try {
-        const response = await axios.get(`/api/microcontrollers`);
+        const response = await axios.get(`${API_URL}/api/microcontrollers`);
         console.log("data: " + response.data);
         const result = response.data;
         setMicrocontrollers(result.items || []);
@@ -37,7 +38,9 @@ export function ExpansiveForm() {
     if (isEditMode) {
       const fetchExpansive = async () => {
         try {
-          const response = await axios.get(`/api/expansiveboards/${id}`);
+          const response = await axios.get(
+            `${API_URL}/api/expansiveboards/${id}`,
+          );
           setName(response.data.name || "");
           setNote(response.data.note || "");
           setMicroControlId(response.data.microControlId || "");
@@ -68,10 +71,13 @@ export function ExpansiveForm() {
         microControlId: parseInt(microControlId), // ép kiểu
       };
       if (isEditMode) {
-        await axios.put(`/api/expansiveboards/${id}`, data); // ko dùng lại {} vì đó là object
+        await axios.put(`${API_URL}/api/expansiveboards/${id}`, data); // ko dùng lại {} vì đó là object
         setSuccess("Expansive board updated successfully !");
       } else {
-        const response = await axios.post(`/api/expansiveboards`, data); // ko dùng lại {} vì đó là object
+        const response = await axios.post(
+          `${API_URL}/api/expansiveboards`,
+          data,
+        ); // ko dùng lại {} vì đó là object
         setErrorEx("");
         setErrorMic("");
         setMicroControlId("");

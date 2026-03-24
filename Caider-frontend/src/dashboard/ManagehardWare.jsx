@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
-import "./css/manageDashboard.css";
+import axios from "axios";
+import { API_URL } from "../config/api";
+import "../css/manageDashboard.css";
 import { useNavigate } from "react-router-dom";
 
 export function ManagehardWare() {
@@ -18,28 +20,16 @@ export function ManagehardWare() {
 
       const [responseMicro, responseExp, responseServos, responseMotors] =
         await Promise.all([
-          fetch("/api/microcontrollers"),
-          fetch("/api/expansiveboards"),
-          fetch("/api/servos"),
-          fetch("/api/motors"),
+          axios.get(`${API_URL}/api/microcontrollers`),
+          axios.get(`${API_URL}/api/expansiveboards`),
+          axios.get(`${API_URL}/api/servos`),
+          axios.get(`${API_URL}/api/motors`),
         ]);
 
-      // Kiểm tra nếu có response không ok
-      if (
-        !responseMicro.ok ||
-        !responseExp.ok ||
-        !responseServos.ok ||
-        !responseMotors.ok
-      ) {
-        throw new Error("API không phản hồi ");
-      }
-
-      const [dataMicro, dataExp, dataServos, dataMotors] = await Promise.all([
-        responseMicro.json(),
-        responseExp.json(),
-        responseServos.json(),
-        responseMotors.json(),
-      ]);
+      const dataMicro = responseMicro.data;
+      const dataExp = responseExp.data;
+      const dataServos = responseServos.data;
+      const dataMotors = responseMotors.data;
 
       // do  BE đã code phân trang nên truy cập object api khác đi
       setCountMicro(dataMicro.items.length || 0);

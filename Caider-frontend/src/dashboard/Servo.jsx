@@ -1,56 +1,57 @@
 import { useEffect, useState } from "react";
-import { LinkPage } from "./crud/LinkPage";
-import { useNavigate } from "react-router-dom";
+import { LinkPage } from "../component/LinkPage";
 import axios from "axios";
-import { Pagination } from "./Panigation";
+import { useNavigate } from "react-router-dom";
+import { API_URL } from "../config/api";
+import { Pagination } from "../layout/Panigation";
 
-export function Motor() {
-  const [motor, setMotor] = useState([]);
-  const [pageNumber, setPageNumber] = useState(1); // mặc định trang đầu
+export function Servo() {
+  const [servo, setServo] = useState([]);
+  const [pageNumber, setPageNumber] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
-  //----------------------------------------
+  //------------------------------------
+  const [search, setSearch] = useState("");
   const [loadError, setLoadError] = useState("");
   const [deleteError, setDeleteError] = useState("");
-  const [search, setSearch] = useState("");
   const navigate = useNavigate();
 
   const data = async (page = 1) => {
     try {
-      const response = await axios.get(`/api/motors?pageNumber=${page}`);
+      const response = await axios.get(
+        `${API_URL}/api/servos?pageNumber=${page}`,
+      );
       console.log(response.data);
       const result = response.data;
-      setMotor(result.items || []);
+      setServo(result.items || []);
       setTotalPages(Math.ceil(result.cntTotal / result.pageSize));
       setPageNumber(result.pageNumber);
-      setLoadError("");
     } catch (error) {
-      console.log("lỗi: " + error);
-      setLoadError("lỗi khi lấy dữ liệu Motor: " + error.message);
-      setMotor([]);
+      console.error("Lỗi khi lấy dữ liệu:", error);
+      setLoadError("Lỗi khi lấy dữ liệu servo: " + error.message);
+      setServo([]);
     }
   };
 
   // delete
   const deletes = async (id) => {
     try {
-      await axios.delete(`/api/motors/${id}`);
-      setMotor(motor.filter((item) => item.id !== id));
-      setDeleteError("");
+      await axios.delete(`${API_URL}/api/servos/${id}`);
+      setServo(servo.filter((item) => item.id !== id));
       console.log("Xóa ok:");
+      setDeleteError("");
     } catch (error) {
       console.error("Lỗi khi xóa dữ liệu:", error);
-      setDeleteError("Lỗi khi xóa dữ liệu motor: " + error.message);
+      setDeleteError("Lỗi khi xóa dữ liệu servo: " + error.message);
     }
   };
 
-  // search
-  const filterMotor = motor.filter((item) =>
-    item.name.toLowerCase().includes(search.toLowerCase())
+  const filterServo = servo.filter((item) =>
+    item.name.toLowerCase().includes(search.toLowerCase()),
   );
 
   useEffect(() => {
-    data(pageNumber);
-  }, [pageNumber]);
+    data();
+  }, []);
 
   return (
     <>
@@ -66,13 +67,13 @@ export function Motor() {
         </div>
       )}
       <div className="d-flex justify-content-between align-items-center mb-5">
-        <h1 className="text-light ms-2 fw-bold">Dashboard Motor</h1>
+        <h1 className="text-light ms-2 fw-bold">Dashboard Servo</h1>
         <button
           className="m-2 btn btn-primary fw-medium"
-          onClick={() => navigate("/manage/add-or-up-motor")}
+          onClick={() => navigate("/manage/add-or-up-servo")}
         >
           <i className="bi bi-plus-circle me-2"></i>
-          Motor Board
+          Servo Board
         </button>
       </div>
       {/* search */}
@@ -82,7 +83,7 @@ export function Motor() {
             type="text"
             id="search"
             className="form-control rounded-pill pe-5 shadow-sm border-0"
-            placeholder="Search motor name..."
+            placeholder="Search servo name..."
             style={{ width: "350px", height: "48px" }}
             value={search}
             onChange={(e) => setSearch(e.target.value)}
@@ -104,7 +105,7 @@ export function Motor() {
             </tr>
           </thead>
           <tbody>
-            {filterMotor.map((item, index) => {
+            {filterServo.map((item, index) => {
               return (
                 <>
                   <tr key={item.id}>
@@ -123,7 +124,7 @@ export function Motor() {
                       <button
                         className="btn btn-primary"
                         onClick={() =>
-                          navigate(`/manage/add-or-up-motor/${item.id}`)
+                          navigate(`/manage/add-or-up-servo/${item.id}`)
                         }
                       >
                         Edit

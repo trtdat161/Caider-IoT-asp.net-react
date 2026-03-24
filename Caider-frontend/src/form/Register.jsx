@@ -2,6 +2,7 @@ import { useState } from "react";
 import "../css/addOrUp.css";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { API_URL } from "../config/api";
 
 export function Register() {
   const [form, setForm] = useState({
@@ -65,7 +66,7 @@ export function Register() {
 
     // đăng ký
     try {
-      const response = await axios.post("/api/auth/register", {
+      const response = await axios.post(`${API_URL}/api/auth/register`, {
         username: form.username,
         email: form.email,
         password: form.password,

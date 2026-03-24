@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import "../css/login.css";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { API_URL } from "../config/api";
 
 export function Login() {
   const [done, setDone] = useState(false);
@@ -60,7 +61,7 @@ export function Login() {
 
     try {
       setLoading(true);
-      const response = await axios.post("/api/auth/login", {
+      const response = await axios.post(`${API_URL}/api/auth/login`, {
         username: form.username,
         password: form.password,
       });

@@ -32,7 +32,7 @@ namespace CaiderBackend.Authentication.form
                 }
 
                 /*
-                 check username và password(BRYPT)
+                 check username và password(BCRYPT)
                  báo lỗi chung chung để gọi là đúng nghiệp vụ, ko báo rõ username hay password
                  */
                 if (admin.Username != request.Username)
@@ -70,8 +70,8 @@ namespace CaiderBackend.Authentication.form
                 httpContext.Response.Cookies.Append("access_token", token, new CookieOptions
                 {
                     HttpOnly = true,// Trình duyệt cấm JavaScript đọc cookie này, Nếu false Hacker nhúng script lạ vào, chạy document.cookie là lấy được token
-                    Secure = false, // false khi dev vì localhost http, true khi deploy production
-                    SameSite = SameSiteMode.Lax,// Có tác dụng: Chống tấn công **CSRF** (Cross-Site Request Forgery) CSRF : Hacker tạo 1 trang web giả, dụ click vào -> trang đó tự gửi request đến BE của admin kèm cookie -> BE tưởng là admin gửi
+                    Secure = true, // false khi dev vì localhost http, true khi deploy production
+                    SameSite = SameSiteMode.None,// Có tác dụng: Chống tấn công **CSRF** (Cross-Site Request Forgery) CSRF : Hacker tạo 1 trang web giả, dụ click vào -> trang đó tự gửi request đến BE của admin kèm cookie -> BE tưởng là admin gửi
                     Expires = DateTimeOffset.UtcNow.AddMinutes(60) // Cookie **tự xóa** sau 60 phút
                 });
 
