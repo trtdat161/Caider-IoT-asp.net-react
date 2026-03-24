@@ -16,7 +16,7 @@ namespace CaiderBackend.Authentication.form
     {
         public static void LoginApi(this WebApplication app)
         {
-            app.MapPost("/api/auth/login", async (DataContext db, [FromBody] User request, JwtTokenService jwt, HttpContext httpContext)
+            app.MapPost("/api/auth/login", async (DataContext db, [FromBody] User request, JwtTokenService jwt, JwtOption jwtOptions, HttpContext httpContext)
                 =>
             {
                 // check xem có thằng admin chưa
@@ -67,7 +67,9 @@ namespace CaiderBackend.Authentication.form
                     HttpOnly = true,// Trình duyệt cấm JavaScript đọc cookie này, Nếu false Hacker nhúng script lạ vào, chạy document.cookie là lấy được token
                     Secure = !isDev, // false khi dev vì localhost http, true khi deploy production
                     SameSite = isDev ? SameSiteMode.Lax : SameSiteMode.None,// Có tác dụng: Chống tấn công **CSRF** (Cross-Site Request Forgery) CSRF : Hacker tạo 1 trang web giả, dụ click vào -> trang đó tự gửi request đến BE của admin kèm cookie -> BE tưởng là admin gửi
-                    Expires = DateTimeOffset.UtcNow.AddMinutes(10) // Cookie **tự xóa** sau 10 phút
+                    //Expires = DateTimeOffset.UtcNow.AddMinutes(60) // Cookie **tự xóa** sau 10 phút
+                    Expires = DateTimeOffset.UtcNow.AddMinutes(jwtOptions.DurationInMinutes), // dùng config
+                    Path = "/"
                 });
 
                 return Results.Ok(new
