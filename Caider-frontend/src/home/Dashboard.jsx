@@ -46,16 +46,16 @@ export function Dashboard() {
       if (response.data.success) {
         setConnect(true);
         // thay alert bằng setMessage
-        setMessage({ text: "Kết nối Caider thành công!", type: "success" });
+        setMessage({ text: " Kết nối thành công ", type: "success " });
       } else {
         setConnect(false);
         // thay alert bằng setMessage
-        setMessage({ text: "Kết nối thất bại!", type: "error" });
+        setMessage({ text: " Kết nối thất bại! ", type: "error " });
       }
     } catch (error) {
       setConnect(false);
       // thay alert bằng setMessage
-      setMessage({ text: `Lỗi kết nối: ${error.message}`, type: "error" });
+      setMessage({ text: ` Lỗi kết nối: ${error.message}`, type: "error " });
     }
   };
 
@@ -66,14 +66,14 @@ export function Dashboard() {
       });
       if (response.data.success) {
         // thay alert bằng setMessage
-        setMessage({ text: "Caider đang vẫy tay!", type: "success" });
+        setMessage({ text: " Caider vẫy tay ", type: "success " });
       } else {
         // thay alert bằng setMessage
-        setMessage({ text: "Gửi lệnh thất bại!", type: "error" });
+        setMessage({ text: " Gửi lệnh thất bại! ", type: "error " });
       }
     } catch (error) {
       // thay alert bằng setMessage
-      setMessage({ text: `Lỗi khi gửi: ${error.message}`, type: "error" });
+      setMessage({ text: `Lỗi khi gửi: ${error.message}`, type: "error " });
     }
   };
 
@@ -82,14 +82,14 @@ export function Dashboard() {
       const response = await axios.post(`${API_URL}/api/mqtt/stop`);
       if (response.data.success) {
         // thay alert bằng setMessage
-        setMessage({ text: "Đã dừng Caider!", type: "success" });
+        setMessage({ text: " Đã dừng Caider ", type: "success " });
       } else {
         // thay alert bằng setMessage
-        setMessage({ text: "Dừng không thành công!", type: "error" });
+        setMessage({ text: " Lỗi khi dừng! ", type: "error " });
       }
     } catch (error) {
       // thay alert bằng setMessage
-      setMessage({ text: `Lỗi khi gửi: ${error.message}`, type: "error" });
+      setMessage({ text: ` Lỗi khi gửi: ${error.message}`, type: "error " });
     }
   };
 
@@ -100,14 +100,17 @@ export function Dashboard() {
       });
       if (response.data.success) {
         // thay alert bằng setMessage
-        setMessage({ text: "Caider về trạng thái mặc định!", type: "success" });
+        setMessage({
+          text: " Caider về trạng thái mặc định! ",
+          type: "success",
+        });
       } else {
         // thay alert bằng setMessage
-        setMessage({ text: "Thất bại!", type: "error" });
+        setMessage({ text: " Thất bại! ", type: "error" });
       }
     } catch (error) {
       // thay alert bằng setMessage
-      setMessage({ text: `Lỗi khi gửi: ${error.message}`, type: "error" });
+      setMessage({ text: ` Lỗi khi gửi: ${error.message}`, type: "error" });
     }
   };
 
