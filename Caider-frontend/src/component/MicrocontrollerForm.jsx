@@ -45,7 +45,7 @@ export function MicrocontrollerForm() {
           name,
           note,
         });
-        setSuccess("Microcontroller update`${API_URL}/api/microcontrollers");
+        setSuccess("Microcontroller updated successfully");
       } else {
         const response = await axios.post(`${API_URL}/api/microcontrollers`, {
           name,
