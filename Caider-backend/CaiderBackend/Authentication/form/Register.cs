@@ -69,8 +69,8 @@ namespace CaiderBackend.Authentication.form
                 {
                     return Results.BadRequest(new
                     {
-                        code = "EMAIL_REQUIRED",
-                        message = "vui lòng nhập email"
+                        code = "EMAIL_INVALID",
+                        message = "email không hợp lệ"
                     });
                 }
 

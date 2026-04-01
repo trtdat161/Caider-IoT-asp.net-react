@@ -293,8 +293,8 @@ app.MapPost(micro, async (MicroControl mc, DataContext db) =>
         {
             return Results.BadRequest("vui lòng nhập loại vi điều khiển !");
         }
-        mc.CreatedAt = DateTime.Now;
-        mc.UpdatedAt = DateTime.Now;
+        mc.CreatedAt = DateTime.UtcNow;
+        mc.UpdatedAt = DateTime.UtcNow;
         // thêm vào db thật
         db.MicroControls.Add(mc);
         await db.SaveChangesAsync();
@@ -330,8 +330,8 @@ app.MapPost(expansive, async (ExpansiveBoard eb, DataContext db) =>
         {
             return Results.BadRequest("MicroController không tồn tại!");
         }
-        eb.CreatedAt = DateTime.Now;
-        eb.UpdatedAt = DateTime.Now;
+        eb.CreatedAt = DateTime.UtcNow;
+        eb.UpdatedAt = DateTime.UtcNow;
         // thêm vào db thật
         db.ExpansiveBoards.Add(eb);
         await db.SaveChangesAsync();
@@ -355,8 +355,8 @@ app.MapPost(servo, async (Servo sv, DataContext db) =>
         {
             return Results.BadRequest("vui lòng nhập loại động cơ servo !");
         }
-        sv.CreatedAt = DateTime.Now;
-        sv.UpdatedAt = DateTime.Now;
+        sv.CreatedAt = DateTime.UtcNow;
+        sv.UpdatedAt = DateTime.UtcNow;
         // thêm vào db thật
         db.Servos.Add(sv);
         await db.SaveChangesAsync();
@@ -380,8 +380,8 @@ app.MapPost(motor, async (Motor mt, DataContext db) =>
         {
             return Results.BadRequest("vui lòng nhập loại động cơ !");
         }
-        mt.CreatedAt = DateTime.Now;
-        mt.UpdatedAt = DateTime.Now;
+        mt.CreatedAt = DateTime.UtcNow;
+        mt.UpdatedAt = DateTime.UtcNow;
         // thêm vào db thật
         db.Motors.Add(mt);
         await db.SaveChangesAsync();
@@ -411,7 +411,7 @@ app.MapPut($"{micro}/{{id}}", async (int id, MicroControl input, DataContext db)
         }
         mc.Name = input.Name;
         mc.Note = input.Note;
-        mc.UpdatedAt = DateTime.Now;
+        mc.UpdatedAt = DateTime.UtcNow;
         // lưu thay đổi thật
         await db.SaveChangesAsync();
         return Results.NoContent();
@@ -438,7 +438,7 @@ app.MapPut($"{expansive}/{{id}}", async (int id, ExpansiveBoard input, DataConte
         es.Name = input.Name;
         es.Note = input.Note;
         es.MicroControlId = input.MicroControlId;// FK
-        es.UpdatedAt = DateTime.Now;
+        es.UpdatedAt = DateTime.UtcNow;
         await db.SaveChangesAsync();
         return Results.NoContent();
     }
@@ -463,7 +463,7 @@ app.MapPut($"{servo}/{{id}}", async (int id, Servo input, DataContext db) =>
         }
         sv.Name = input.Name;
         sv.Note = input.Note;
-        sv.UpdatedAt = DateTime.Now;
+        sv.UpdatedAt = DateTime.UtcNow;
         await db.SaveChangesAsync();
         return Results.NoContent();
     }
@@ -488,7 +488,7 @@ app.MapPut($"{motor}/{{id}}", async (int id, Motor input, DataContext db) =>
         }
         mt.Name = input.Name;
         mt.Note = input.Note;
-        mt.UpdatedAt = DateTime.Now;
+        mt.UpdatedAt = DateTime.UtcNow;
         await db.SaveChangesAsync();
         return Results.NoContent();
     }
@@ -509,7 +509,7 @@ app.MapDelete($"{micro}/{{id}}", async (int id, DataContext db) =>
     {
         var mc = await db.MicroControls.FindAsync(id);
         if (mc is null) return Results.NotFound("không thể xóa!");
-        mc.DeletedAt = DateTime.Now;
+        mc.DeletedAt = DateTime.UtcNow;
         await db.SaveChangesAsync();
         return Results.NoContent();
     }
@@ -528,7 +528,7 @@ app.MapDelete($"{expansive}/{{id}}", async (int id, DataContext db) =>
     {
         var es = await db.ExpansiveBoards.FindAsync(id);
         if (es is null) return Results.NotFound("không thể xóa");
-        es.DeletedAt = DateTime.Now;
+        es.DeletedAt = DateTime.UtcNow;
         await db.SaveChangesAsync();
         return Results.NoContent();
     }
@@ -547,7 +547,7 @@ app.MapDelete($"{servo}/{{id}}", async (int id, DataContext db) =>
     {
         var sv = await db.Servos.FindAsync(id);
         if (sv is null) return Results.NotFound("không thể xóa");
-        sv.DeletedAt = DateTime.Now;
+        sv.DeletedAt = DateTime.UtcNow;
         await db.SaveChangesAsync();
         return Results.NoContent();
     }
@@ -566,7 +566,7 @@ app.MapDelete($"{motor}/{{id}}", async (int id, DataContext db) =>
     {
         var mt = await db.Motors.FindAsync(id);
         if (mt is null) return Results.NotFound("không thể xóa");
-        mt.DeletedAt = DateTime.Now;
+        mt.DeletedAt = DateTime.UtcNow;
         await db.SaveChangesAsync();
         return Results.NoContent();
     }
