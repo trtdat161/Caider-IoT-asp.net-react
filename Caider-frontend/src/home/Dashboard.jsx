@@ -185,7 +185,7 @@ export function Dashboard() {
                   <button onClick={connectCaider}>Connect with Caider</button>
                 </div>
                 <div>
-                  <div>
+                  <div className="d-flex justify-content-center my-3 btn-connect gap-3">
                     <button
                       className="btn-primary"
                       onClick={handleWaveHello}
