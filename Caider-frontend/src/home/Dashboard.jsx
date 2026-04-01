@@ -131,6 +131,8 @@ export function Dashboard() {
     data();
   }, []);
 
+  // status message console
+  const isSuccess = message.type?.trim() === "success";
   return (
     <>
       <div className="container-fluid min-vh-100 d-flex flex-column">
@@ -225,16 +227,14 @@ export function Dashboard() {
                 >
                   <div
                     style={{
-                      color: message.type === "success" ? "#4ade80" : "#f87171",
-                      fontWeight: "600",
+                      color: isSuccess ? "#2fff7c" : "#ff3b3b",
                       fontSize: "0.95rem",
                       textAlign: "center",
                       // không dùng marginTop nữa vì đã có p-2 của div cha
                     }}
                   >
                     {message.text
-                      ? (message.type === "success" ? "DONE" : "ERROR") +
-                        message.text
+                      ? (isSuccess ? "DONE " : "ERROR ") + message.text
                       : ""}
                   </div>
                 </div>
