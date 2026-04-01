@@ -213,23 +213,29 @@ export function Dashboard() {
                 </div>
 
                 {/* OK : hiển thị thông báo thay thế alert, chỉ hiện khi có text */}
-                <div className="border">
-                  {message.text && (
-                    <div
-                      style={{
-                        marginTop: "16px",
-                        color:
-                          message.type === "success" ? "#4ade80" : "#f87171",
-                        fontWeight: "600",
-                        fontSize: "0.95rem",
-                        textAlign: "center",
-                      }}
-                    >
-                      {message.type === "success" ? "OK " : "ERROR"}
-                      {message.text}
-                    </div>
-                  )}
+                <div
+                  className="border rounded p-2 mt-3"
+                  style={{
+                    background: "#000",
+                    minHeight: "48px", // luôn chiếm chỗ → nút không bị đẩy
+                  }}
+                >
+                  <div
+                    style={{
+                      color: message.type === "success" ? "#4ade80" : "#f87171",
+                      fontWeight: "600",
+                      fontSize: "0.95rem",
+                      textAlign: "center",
+                      // không dùng marginTop nữa vì đã có p-2 của div cha
+                    }}
+                  >
+                    {message.text
+                      ? (message.type === "success" ? "✅ " : "❌ ") +
+                        message.text
+                      : ""}
+                  </div>
                 </div>
+                {/* ------- */}
               </div>
             </div>
 
