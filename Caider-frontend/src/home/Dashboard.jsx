@@ -29,10 +29,10 @@ export function Dashboard() {
           axios.get(`${API_URL}/api/servos`),
           axios.get(`${API_URL}/api/motors`),
         ]);
-      setExpansive(responseExp.data.items[0].name || "no data");
-      setMicro(responseMicro.data.items[0].name || "no data");
-      setMotor(responseMotors.data.items[0].name || "no data");
-      setServo(responseServos.data.items[0].name || "no data");
+      setExpansive(responseExp.data.items[0]?.name || "no data");
+      setMicro(responseMicro.data.items[0]?.name || "no data");
+      setMotor(responseMotors.data.items[0]?.name || "no data");
+      setServo(responseServos.data.items[0]?.name || "no data");
     } catch (error) {
       console.log("lỗi: " + error);
     }
@@ -95,7 +95,9 @@ export function Dashboard() {
 
   const defaultCaider = async () => {
     try {
-      const response = await axios.post(`${API_URL}/api/mqtt/default`);
+      const response = await axios.post(`${API_URL}/api/mqtt/default`, {
+        functionName: "default",
+      });
       if (response.data.success) {
         // thay alert bằng setMessage
         setMessage({ text: "Caider về trạng thái mặc định!", type: "success" });
@@ -158,7 +160,7 @@ export function Dashboard() {
           <div className="row flex-grow-1">
             <div className="col-md-12">
               <header>
-                <h2 className="title text-center my-3">caider welcome you</h2>
+                <h2 className="title text-center my-3">caider welcome boss</h2>
               </header>
             </div>
           </div>
@@ -199,13 +201,14 @@ export function Dashboard() {
                       stop waving
                     </button>
                   </div>
-                  nút làm cho robot cử động mặc định
                   <div className="caider-default">
                     <button
                       className="btn-primary"
                       onClick={defaultCaider}
                       disabled={!connect}
-                    ></button>
+                    >
+                      caider default
+                    </button>
                   </div>
                 </div>
 
@@ -287,7 +290,7 @@ export function Dashboard() {
                     <div>10101</div>
                     <div>1</div>
                     <div>0</div>
-                    <div>...</div>
+                    <div>... ... ...</div>
                   </div>
                   <style>{`
                     @keyframes hc-scroll {
