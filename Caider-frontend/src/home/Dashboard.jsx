@@ -230,7 +230,7 @@ export function Dashboard() {
                     }}
                   >
                     {message.text
-                      ? (message.type === "success" ? "✅ " : "❌ ") +
+                      ? (message.type === "success" ? "DONE" : "ERROR") +
                         message.text
                       : ""}
                   </div>
