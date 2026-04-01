@@ -201,7 +201,7 @@ export function Dashboard() {
                       stop waving
                     </button>
                   </div>
-                  <div className="caider-default">
+                  <div className="d-flex justify-content-center my-3 btn-connect">
                     <button
                       className="btn-primary"
                       onClick={defaultCaider}
