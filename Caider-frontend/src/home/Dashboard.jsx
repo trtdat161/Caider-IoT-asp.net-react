@@ -217,7 +217,7 @@ export function Dashboard() {
 
                 {/* OK : hiển thị thông báo thay thế alert, chỉ hiện khi có text */}
                 <div
-                  className="border rounded p-2 mt-3"
+                  className="border rounded p-3 mt-3"
                   style={{
                     background: "#000",
                     minHeight: "48px", // luôn chiếm chỗ → nút không bị đẩy
