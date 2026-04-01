@@ -111,12 +111,28 @@ app.MapPost("api/mqtt/command", async (CommandRequest cmd, MqttService mqtt) =>
         return Results.Ok(new
         {
             success = true,
-            message = "Đã gửi lệnh"
+            message = "Đã gửi lệnh vẫy tay"
         });
     }
     catch (Exception ex)
     {
         return Results.Problem($"Lỗi: {ex.Message}");
+    }
+}).RequireAuthorization();
+app.MapPost("api/mqtt/default", async (CommandRequest cmd, MqttService mqtt) =>
+{
+    try
+    {
+        await mqtt.PublishAsync("esp32/default", cmd.FunctionName);
+
+        return Results.Ok(new
+        {
+            success = true,
+            message = "đã gửi lệnh mặc định"
+        });
+    }catch(Exception ex)
+    {
+        return Results.Problem($"lỗi: " + ex.Message);
     }
 }).RequireAuthorization();
 

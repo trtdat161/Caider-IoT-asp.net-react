@@ -1,4 +1,3 @@
-// import { BASE_URL } from "./BaseUrl";
 import React, { useEffect, useState } from "react";
 import CaiderScan from "./CaiderScan";
 import "../css/dashboard.css";
@@ -12,13 +11,15 @@ export function Dashboard() {
   const [motor, setMotor] = useState("");
   const [servo, setServo] = useState("");
   const [connect, setConnect] = useState(false);
-  // chuyển trang
+
+  // OK : state thông báo thay thế alert
+  const [message, setMessage] = useState({ text: "", type: "" });
+
   const navigate = useNavigate();
   const manageHardware = () => {
     navigate("/manage");
   };
 
-  // render ra các phần cuwsg robot
   const data = async () => {
     try {
       const [responseExp, responseMicro, responseServos, responseMotors] =
@@ -28,15 +29,10 @@ export function Dashboard() {
           axios.get(`${API_URL}/api/servos`),
           axios.get(`${API_URL}/api/motors`),
         ]);
-      const dataExp = responseExp.data;
-      const dataMicro = responseMicro.data;
-      const dataServos = responseServos.data;
-      const dataMotors = responseMotors.data;
-      // những lúc ko ra data ở json ra là biết để còn truy cập đc
-      setExpansive(dataExp.items[0].name || "no data");
-      setMicro(dataMicro.items[0].name || "no data");
-      setMotor(dataMotors.items[0].name || "no data");
-      setServo(dataServos.items[0].name || "no data");
+      setExpansive(responseExp.data.items[0].name || "no data");
+      setMicro(responseMicro.data.items[0].name || "no data");
+      setMotor(responseMotors.data.items[0].name || "no data");
+      setServo(responseServos.data.items[0].name || "no data");
     } catch (error) {
       console.log("lỗi: " + error);
     }
@@ -49,42 +45,70 @@ export function Dashboard() {
       });
       if (response.data.success) {
         setConnect(true);
+        // thay alert bằng setMessage
+        setMessage({ text: "Kết nối Caider thành công!", type: "success" });
       } else {
         setConnect(false);
+        // thay alert bằng setMessage
+        setMessage({ text: "Kết nối thất bại!", type: "error" });
       }
     } catch (error) {
-      console.log("lỗi: " + error.message);
       setConnect(false);
+      // thay alert bằng setMessage
+      setMessage({ text: `Lỗi kết nối: ${error.message}`, type: "error" });
     }
   };
+
   const handleWaveHello = async () => {
     try {
       const response = await axios.post(`${API_URL}/api/mqtt/command`, {
         functionName: "wave",
       });
       if (response.data.success) {
-        alert("Cader thực hiện vẫy tay");
+        // thay alert bằng setMessage
+        setMessage({ text: "Caider đang vẫy tay!", type: "success" });
       } else {
-        alert("Gửi lệnh thất bại!");
+        // thay alert bằng setMessage
+        setMessage({ text: "Gửi lệnh thất bại!", type: "error" });
       }
     } catch (error) {
-      alert(`Lỗi khi gửi: ${error.message}`);
+      // thay alert bằng setMessage
+      setMessage({ text: `Lỗi khi gửi: ${error.message}`, type: "error" });
     }
   };
+
   const stopWaveHello = async () => {
     try {
       const response = await axios.post(`${API_URL}/api/mqtt/stop`);
       if (response.data.success) {
-        alert("stop caider thành công");
+        // thay alert bằng setMessage
+        setMessage({ text: "Đã dừng Caider!", type: "success" });
       } else {
-        alert("stop không thành công!");
+        // thay alert bằng setMessage
+        setMessage({ text: "Dừng không thành công!", type: "error" });
       }
     } catch (error) {
-      alert(`Lỗi khi gửi: ${error.message}`);
+      // thay alert bằng setMessage
+      setMessage({ text: `Lỗi khi gửi: ${error.message}`, type: "error" });
     }
   };
 
-  // logout
+  const defaultCaider = async () => {
+    try {
+      const response = await axios.post(`${API_URL}/api/mqtt/default`);
+      if (response.data.success) {
+        // thay alert bằng setMessage
+        setMessage({ text: "Caider về trạng thái mặc định!", type: "success" });
+      } else {
+        // thay alert bằng setMessage
+        setMessage({ text: "Thất bại!", type: "error" });
+      }
+    } catch (error) {
+      // thay alert bằng setMessage
+      setMessage({ text: `Lỗi khi gửi: ${error.message}`, type: "error" });
+    }
+  };
+
   const Logout = async () => {
     try {
       const response = await axios.post(`${API_URL}/api/auth/logout`);
@@ -92,10 +116,9 @@ export function Dashboard() {
       console.log("message: " + result.message);
       if (result) {
         navigate("/login", { replace: true });
-        // về cơ bản thì ko cần { replace: true } cũng đc vì component ProtectedRoute đã check rồi nhưng để mượt UI thì nên có
       }
     } catch (error) {
-      alert(`Lỗi khi logout: ${error.message}`);
+      setMessage({ text: `Lỗi khi logout: ${error.message}`, type: "error" });
     }
   };
 
@@ -119,7 +142,6 @@ export function Dashboard() {
                     <span className="me-2">caider manager</span>
                     <i className="bi bi-gear-wide-connected"></i>
                   </button>
-                  {/* logout */}
                   <button
                     className="gear-btn"
                     onClick={Logout}
@@ -141,7 +163,6 @@ export function Dashboard() {
             </div>
           </div>
 
-          {/* row 2 */}
           <main className="row flex-grow-1">
             <aside className="col-md-3 display-left">
               <div className="infomation">
@@ -150,7 +171,6 @@ export function Dashboard() {
                   <div>protocol: MQTT</div>
                   <div>status: {connect ? "Connected" : "Disconnected"}</div>
                 </div>
-                {/* info2 nhét HumanScan vào đây */}
                 <div className="info2 p-2">
                   <CaiderScan />
                 </div>
@@ -179,7 +199,31 @@ export function Dashboard() {
                       stop waving
                     </button>
                   </div>
+                  nút làm cho robot cử động mặc định
+                  <div className="caider-default">
+                    <button
+                      className="btn-primary"
+                      onClick={defaultCaider}
+                      disabled={!connect}
+                    ></button>
+                  </div>
                 </div>
+
+                {/* OK : hiển thị thông báo thay thế alert, chỉ hiện khi có text */}
+                {message.text && (
+                  <div
+                    style={{
+                      marginTop: "16px",
+                      color: message.type === "success" ? "#4ade80" : "#f87171",
+                      fontWeight: "600",
+                      fontSize: "0.95rem",
+                      textAlign: "center",
+                    }}
+                  >
+                    {message.type === "success" ? "OK " : "❌ "}
+                    {message.text}
+                  </div>
+                )}
               </div>
             </div>
 
