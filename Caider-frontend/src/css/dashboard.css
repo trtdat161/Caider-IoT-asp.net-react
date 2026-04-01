@@ -1,5 +1,6 @@
-* {
-  font-family: "Nunito", sans-serif;
+html,
+body {
+  font-family: "Nunito", sans-serif !important;
   text-transform: capitalize;
 }
 
