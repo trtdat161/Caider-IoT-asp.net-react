@@ -163,3 +163,22 @@ button {
 .btn-secondary:active {
   background: #d1d5db;
 }
+
+.btn-caider-default {
+  background-color: #ff8c00;
+  border: none;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn-caider-default:hover {
+  background-color: #ff7000;
+}
+
+.btn-caider-default:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}

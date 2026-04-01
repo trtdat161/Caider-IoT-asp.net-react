@@ -208,7 +208,7 @@ export function Dashboard() {
                   </div>
                   <div className="d-flex justify-content-center my-3 btn-connect">
                     <button
-                      className="btn-warning"
+                      className="btn-caider-default"
                       onClick={defaultCaider}
                       disabled={!connect}
                     >
