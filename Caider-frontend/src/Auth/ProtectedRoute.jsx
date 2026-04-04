@@ -69,6 +69,10 @@ function getCookie(name) {
 
 export function ProtectedRoute({ children }) {
   const isLoggedIn = getCookie("is_logged_in");
+  console.log("=== ProtectedRoute ===");
+  console.log("document.cookie:", document.cookie);
+  console.log("is_logged_in value:", isLoggedIn);
+  console.log("isLoggedIn === true:", isLoggedIn === "true");
 
   // Đọc cookie local — không gọi API, không sợ server ngủ
   return isLoggedIn === "true" ? children : <Navigate to="/login" replace />;
