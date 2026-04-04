@@ -106,7 +106,11 @@ export function Dashboard() {
       const response = await axios.post(`${API_URL}/api/auth/logout`);
       const result = response.data;
       console.log("message: " + result.message);
-      if (result) navigate("/login", { replace: true });
+      if (result.message === "LOGOUT_SUCCESS") {
+        navigate("/login", { replace: true });
+      } else {
+        console.log("Logout failed: " + result.message);
+      }
     } catch (error) {
       setMessage({ text: `Lỗi khi logout: ${error.message}`, type: "error" });
     }
