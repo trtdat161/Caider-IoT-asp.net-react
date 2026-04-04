@@ -7,7 +7,7 @@ export function Login() {
   const [done, setDone] = useState(false);
   const [loginError, setLoginError] = useState("");
   const [loading, setLoading] = useState(false);
-  const [showForgotMsg, setShowForgotMsg] = useState(false); // 👈 thêm
+  const [showForgotMsg, setShowForgotMsg] = useState(false); // thêm
 
   const timeRef = useRef(null);
 
@@ -26,7 +26,7 @@ export function Login() {
     });
   };
 
-  // 👇 thêm function này
+  // thêm function này
   const handleForgotPassword = (e) => {
     e.preventDefault();
     setShowForgotMsg(true);
@@ -141,8 +141,14 @@ export function Login() {
             )}
           </div>
 
+          <div className="text-center">
+            <button type="submit" className="w-100 mt-2">
+              {loading ? "Logging in..." : "Login"}
+            </button>
+          </div>
+
           {/* Forgot password đặt đúng chỗ */}
-          <div className="text-end mt-1">
+          <div className="text-center mt-2">
             <a
               href="#"
               onClick={handleForgotPassword}
@@ -152,16 +158,10 @@ export function Login() {
             </a>
           </div>
 
-          <div className="text-center">
-            <button type="submit" className="w-100 mt-2">
-              {loading ? "Logging in..." : "Login"}
-            </button>
-          </div>
-
           {/* thông báo forgot */}
           {showForgotMsg && (
             <div className="alert alert-warning mt-3 text-center" role="alert">
-              Chức năng này đang phát triển 🚧
+              Chức năng này đang phát triển
             </div>
           )}
 
