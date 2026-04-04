@@ -79,6 +79,10 @@ main .btn-connect button:active {
   cursor: pointer;
 }
 
+.gear-btn:hover {
+  background: #00b1ed;
+}
+
 /* menu ẩn */
 
 .gear-menu {
@@ -157,7 +161,7 @@ button {
 }
 
 .btn-secondary:active {
-  background: #739ef3;
+  background: #0256ff;
 }
 
 .btn-caider-default {
@@ -171,7 +175,7 @@ button {
 }
 
 .btn-caider-default:active {
-  background-color: #deea00;
+  background-color: #ffc800;
 }
 
 .btn-caider-default:disabled {
@@ -194,7 +198,7 @@ button {
   justify-content: center;
   gap: 24px;
   /* giữ nguyên 2s, rồi fade-out 0.6s */
-  animation: boot-fadeout 0.6s ease-out 4s forwards;
+  animation: boot-fadeout 0.6s ease-out 3s forwards;
 }
 
 /* scan line quét từ trên xuống */
@@ -253,7 +257,6 @@ button {
   border-radius: 4px;
   overflow: hidden;
   border: 1px solid #3679ff44;
-  animation: boot-appear 0.4s ease-out 0.6s both;
 }
 
 .boot-bar {
