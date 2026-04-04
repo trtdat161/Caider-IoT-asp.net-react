@@ -59,7 +59,7 @@ main .btn-connect button {
   border: none;
 }
 
-main .btn-connect button:hover {
+main .btn-connect button:active {
   background-color: rgb(0, 136, 190);
   color: #fff;
   cursor: pointer;
@@ -138,7 +138,7 @@ button {
   box-shadow: 0 4px 12px rgba(37, 99, 235, 0.35);
 }
 
-.btn-primary:hover {
+.btn-primary:active {
   transform: translateY(-1px) scale(1.01);
   box-shadow: 0 6px 18px rgba(37, 99, 235, 0.45);
 }
@@ -156,12 +156,8 @@ button {
   border: 1px solid #3a3a3a;
 }
 
-.btn-secondary:hover {
-  background: #6d90d6;
-}
-
 .btn-secondary:active {
-  background: #d1d5db;
+  background: #739ef3;
 }
 
 .btn-caider-default {
@@ -174,8 +170,8 @@ button {
   transition: 0.2s;
 }
 
-.btn-caider-default:hover {
-  background-color: #ff7000;
+.btn-caider-default:active {
+  background-color: #deea00;
 }
 
 .btn-caider-default:disabled {
@@ -198,7 +194,7 @@ button {
   justify-content: center;
   gap: 24px;
   /* giữ nguyên 2s, rồi fade-out 0.6s */
-  animation: boot-fadeout 0.6s ease-out 2s forwards;
+  animation: boot-fadeout 0.6s ease-out 4s forwards;
 }
 
 /* scan line quét từ trên xuống */
