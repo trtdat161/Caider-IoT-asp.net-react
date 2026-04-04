@@ -70,7 +70,6 @@ export function Login() {
         username: form.username,
         password: form.password,
       });
-      sessionStorage.setItem("auth", "1"); // check
 
       console.log("data: " + response.data);
 
