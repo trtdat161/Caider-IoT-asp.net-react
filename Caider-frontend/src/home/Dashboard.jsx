@@ -107,6 +107,7 @@ export function Dashboard() {
       const result = response.data;
       console.log("message: " + result.message);
       if (result.message === "LOGOUT_SUCCESS") {
+        console.log("Logout successful");
         navigate("/login", { replace: true });
       } else {
         console.log("Logout failed: " + result.message);
