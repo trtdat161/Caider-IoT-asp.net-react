@@ -81,6 +81,7 @@ main .btn-connect button:active {
 
 .gear-btn:hover {
   background: #00b1ed;
+  color: #fff;
 }
 
 /* menu ẩn */
