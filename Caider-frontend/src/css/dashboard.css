@@ -167,7 +167,7 @@ button {
 .btn-caider-default {
   background-color: #ff8c00;
   border: none;
-  color: white;
+  color: rgb(255, 255, 255);
   padding: 8px 16px;
   border-radius: 6px;
   cursor: pointer;
@@ -181,4 +181,132 @@ button {
 .btn-caider-default:disabled {
   opacity: 0.6;
   cursor: not-allowed;
+}
+
+/* -------------------- animation -------------------- */
+
+/* ===== BOOT OVERLAY ===== */
+
+.boot-overlay {
+  position: fixed;
+  inset: 0;
+  background: #000;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  /* giữ nguyên 2s, rồi fade-out 0.6s */
+  animation: boot-fadeout 0.6s ease-out 2s forwards;
+}
+
+/* scan line quét từ trên xuống */
+
+.boot-scanline {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    #3679ff 30%,
+    #00e5ff 50%,
+    #3679ff 70%,
+    transparent 100%
+  );
+  box-shadow:
+    0 0 18px #3679ff,
+    0 0 40px #00bfff;
+  animation: scan-sweep 1.8s cubic-bezier(0.4, 0, 0.6, 1) forwards;
+}
+
+/* logo / tên robot */
+
+.boot-logo {
+  font-family: monospace;
+  font-size: 2.8rem;
+  font-weight: 900;
+  letter-spacing: 0.25em;
+  color: #fff;
+  text-shadow:
+    0 0 12px #3679ff,
+    0 0 30px #00bfff;
+  animation: boot-appear 0.5s ease-out 0.2s both;
+}
+
+/* dòng trạng thái */
+
+.boot-status {
+  font-family: monospace;
+  font-size: 0.9rem;
+  letter-spacing: 0.2em;
+  color: #3679ff;
+  text-shadow: 0 0 8px #3679ff;
+  animation: boot-appear 0.5s ease-out 0.5s both;
+}
+
+/* thanh progress */
+
+.boot-bar-wrap {
+  width: 260px;
+  height: 4px;
+  background: #111;
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid #3679ff44;
+  animation: boot-appear 0.4s ease-out 0.6s both;
+}
+
+.boot-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #3679ff, #00e5ff);
+  box-shadow: 0 0 8px #00bfff;
+  border-radius: 4px;
+  /* lấp đầy trong 1.6s */
+  animation: bar-fill 1.6s ease-out 0.6s both;
+}
+
+/* keyframes */
+
+@keyframes scan-sweep {
+  from {
+    top: 0%;
+    opacity: 1;
+  }
+  to {
+    top: 100%;
+    opacity: 0.3;
+  }
+}
+
+@keyframes boot-appear {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bar-fill {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes boot-fadeout {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
 }

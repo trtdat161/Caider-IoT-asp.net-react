@@ -7,11 +7,9 @@ export function Login() {
   const [done, setDone] = useState(false);
   const [loginError, setLoginError] = useState("");
   const [loading, setLoading] = useState(false);
+  const [showForgotMsg, setShowForgotMsg] = useState(false); // 👈 thêm
+
   const timeRef = useRef(null);
-  /*  
-  tạo 1 useRef để lưu lại giá trị id của setTimeout,
-  tránh bị lỗi khi component unmount mà timeout vẫn chạy
-  */
 
   const [form, setForm] = useState({
     username: "",
@@ -28,18 +26,26 @@ export function Login() {
     });
   };
 
+  // 👇 thêm function này
+  const handleForgotPassword = (e) => {
+    e.preventDefault();
+    setShowForgotMsg(true);
+
+    setTimeout(() => {
+      setShowForgotMsg(false);
+    }, 3000);
+  };
+
   const LoginAction = async (e) => {
     e.preventDefault();
     const newErrors = { username: "", password: "" };
 
-    // username
     if (!form.username) {
       newErrors.username = "username không được để trống !";
     } else if (form.username.length < 4) {
       newErrors.username = "username ít nhất 4 ký tự !";
     }
 
-    // Password
     if (!form.password) {
       newErrors.password = "Password không được để trống";
     } else if (form.password.length < 6) {
@@ -51,9 +57,9 @@ export function Login() {
     } else if (!/(?=.*\d)/.test(form.password)) {
       newErrors.password = "Password phải có ít nhất 1 chữ số";
     }
+
     setErrors(newErrors);
 
-    // kiểm tra lại xem còn cái nào rỗng ko và còn cái nào có lỗi k
     if (Object.values(newErrors).some((error) => error !== "")) {
       return;
     }
@@ -64,14 +70,12 @@ export function Login() {
         username: form.username,
         password: form.password,
       });
-      console.log("data: " + response.data);
-      // const result = response.data;
 
-      // localStorage.setItem("access_token", result.access_token); // access_token key của BE
-      // console.log("Saved token:", localStorage.getItem("access_token"));
+      console.log("data: " + response.data);
 
       setDone(true);
       setLoginError("");
+
       timeRef.current = setTimeout(() => {
         navigate("/dashboard", { replace: true });
       }, 2300);
@@ -80,11 +84,10 @@ export function Login() {
       setLoginError(" username or password faild");
       setDone(false);
     } finally {
-      setLoading(false); // dù login thành công hay thất bại thì cũng phải tắt loading
+      setLoading(false);
     }
   };
 
-  // cleanup function để clear timeout khi component unmount, tránh lỗi setState trên component đã unmount
   useEffect(() => {
     return () => {
       clearTimeout(timeRef.current);
@@ -94,11 +97,10 @@ export function Login() {
   return (
     <>
       <div className="container vh-100 d-flex justify-content-center align-items-center">
-        {/* error */}
-
         <form onSubmit={LoginAction} className="border rounded shadow p-4">
           <h2 className="text-center text-light">LOGIN</h2>
           <hr />
+
           <div className="mb-3">
             <label htmlFor="username" className="form-label text-light">
               username
@@ -138,16 +140,37 @@ export function Login() {
               </span>
             )}
           </div>
+
+          {/* Forgot password đặt đúng chỗ */}
+          <div className="text-end mt-1">
+            <a
+              href="#"
+              onClick={handleForgotPassword}
+              style={{ fontSize: "14px" }}
+            >
+              Forgot password?
+            </a>
+          </div>
+
           <div className="text-center">
             <button type="submit" className="w-100 mt-2">
               {loading ? "Logging in..." : "Login"}
             </button>
           </div>
+
+          {/* thông báo forgot */}
+          {showForgotMsg && (
+            <div className="alert alert-warning mt-3 text-center" role="alert">
+              Chức năng này đang phát triển 🚧
+            </div>
+          )}
+
           {done && (
             <div className="alert alert-success mt-3 text-center" role="alert">
               Login successful!
             </div>
           )}
+
           {loginError && (
             <div className="alert alert-danger mt-3" role="alert">
               {loginError}

@@ -11,14 +11,13 @@ export function Dashboard() {
   const [motor, setMotor] = useState("");
   const [servo, setServo] = useState("");
   const [connect, setConnect] = useState(false);
-
-  // OK : state thông báo thay thế alert
   const [message, setMessage] = useState({ text: "", type: "" });
 
+  //  THÊM: boot state — true = đang hiện overlay
+  const [booted, setBooted] = useState(false);
+
   const navigate = useNavigate();
-  const manageHardware = () => {
-    navigate("/manage");
-  };
+  const manageHardware = () => navigate("/manage");
 
   const data = async () => {
     try {
@@ -45,16 +44,13 @@ export function Dashboard() {
       });
       if (response.data.success) {
         setConnect(true);
-        // thay alert bằng setMessage
         setMessage({ text: " Kết nối thành công ", type: "success " });
       } else {
         setConnect(false);
-        // thay alert bằng setMessage
         setMessage({ text: " Kết nối thất bại! ", type: "error " });
       }
     } catch (error) {
       setConnect(false);
-      // thay alert bằng setMessage
       setMessage({ text: ` Lỗi kết nối: ${error.message}`, type: "error " });
     }
   };
@@ -65,14 +61,11 @@ export function Dashboard() {
         functionName: "wave",
       });
       if (response.data.success) {
-        // thay alert bằng setMessage
         setMessage({ text: " Caider vẫy tay ", type: "success " });
       } else {
-        // thay alert bằng setMessage
         setMessage({ text: " Gửi lệnh thất bại! ", type: "error " });
       }
     } catch (error) {
-      // thay alert bằng setMessage
       setMessage({ text: `Lỗi khi gửi: ${error.message}`, type: "error " });
     }
   };
@@ -81,14 +74,11 @@ export function Dashboard() {
     try {
       const response = await axios.post(`${API_URL}/api/mqtt/stop`);
       if (response.data.success) {
-        // thay alert bằng setMessage
         setMessage({ text: " Đã dừng Caider ", type: "success " });
       } else {
-        // thay alert bằng setMessage
         setMessage({ text: " Lỗi khi dừng! ", type: "error " });
       }
     } catch (error) {
-      // thay alert bằng setMessage
       setMessage({ text: ` Lỗi khi gửi: ${error.message}`, type: "error " });
     }
   };
@@ -99,17 +89,14 @@ export function Dashboard() {
         functionName: "default",
       });
       if (response.data.success) {
-        // thay alert bằng setMessage
         setMessage({
           text: " Caider về trạng thái mặc định! ",
           type: "success",
         });
       } else {
-        // thay alert bằng setMessage
         setMessage({ text: " Thất bại! ", type: "error" });
       }
     } catch (error) {
-      // thay alert bằng setMessage
       setMessage({ text: ` Lỗi khi gửi: ${error.message}`, type: "error" });
     }
   };
@@ -119,9 +106,7 @@ export function Dashboard() {
       const response = await axios.post(`${API_URL}/api/auth/logout`);
       const result = response.data;
       console.log("message: " + result.message);
-      if (result) {
-        navigate("/login", { replace: true });
-      }
+      if (result) navigate("/login", { replace: true });
     } catch (error) {
       setMessage({ text: `Lỗi khi logout: ${error.message}`, type: "error" });
     }
@@ -131,10 +116,33 @@ export function Dashboard() {
     data();
   }, []);
 
-  // status message console
   const isSuccess = message.type?.trim() === "success";
+
   return (
     <>
+      {/* BOOT OVERLAY — tự remove khỏi DOM sau khi animation kết thúc */}
+      {!booted && (
+        <div
+          className="boot-overlay"
+          onAnimationEnd={() => setBooted(true)} // remove sau fade-out
+        >
+          {/* scan line quét từ trên xuống */}
+          <div className="boot-scanline" />
+
+          {/* tên robot */}
+          <div className="boot-logo">CAIDER</div>
+
+          {/* trạng thái */}
+          <div className="boot-status">SYSTEM INITIALIZING...</div>
+
+          {/* progress bar */}
+          <div className="boot-bar-wrap">
+            <div className="boot-bar" />
+          </div>
+        </div>
+      )}
+
+      {/* ===== DASHBOARD GỐC — không đổi gì ===== */}
       <div className="container-fluid min-vh-100 d-flex flex-column">
         <div className="flex-grow-1 d-flex flex-column">
           <header className="row">
@@ -217,20 +225,15 @@ export function Dashboard() {
                   </div>
                 </div>
 
-                {/* OK : hiển thị thông báo thay thế alert, chỉ hiện khi có text */}
                 <div
                   className="border rounded p-3 mt-3"
-                  style={{
-                    background: "#000",
-                    minHeight: "48px", // luôn chiếm chỗ → nút không bị đẩy
-                  }}
+                  style={{ background: "#000", minHeight: "48px" }}
                 >
                   <div
                     style={{
                       color: isSuccess ? "#2fff7c" : "#ff3b3b",
                       fontSize: "0.95rem",
                       textAlign: "center",
-                      // không dùng marginTop nữa vì đã có p-2 của div cha
                     }}
                   >
                     {message.text
@@ -238,7 +241,6 @@ export function Dashboard() {
                       : ""}
                   </div>
                 </div>
-                {/* ------- */}
               </div>
             </div>
 
