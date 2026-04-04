@@ -65,7 +65,7 @@ namespace CaiderBackend.Authentication.form
                 httpContext.Response.Cookies.Append("access_token", token, new CookieOptions
                 {
                     HttpOnly = true,// Trình duyệt cấm JavaScript đọc cookie này, Nếu false Hacker nhúng script lạ vào, chạy document.cookie là lấy được token
-                    Secure = !isDev, // false khi dev vì localhost http, true khi deploy production
+                    Secure = !isDev, 
                     SameSite = isDev ? SameSiteMode.Lax : SameSiteMode.None,// Có tác dụng: Chống tấn công **CSRF** (Cross-Site Request Forgery) CSRF : Hacker tạo 1 trang web giả, dụ click vào -> trang đó tự gửi request đến BE của admin kèm cookie -> BE tưởng là admin gửi
                     //Expires = DateTimeOffset.UtcNow.AddMinutes(60) // Cookie **tự xóa** sau 10 phút
                     Expires = DateTimeOffset.UtcNow.AddMinutes(jwtOptions.DurationInMinutes), // dùng config
@@ -82,9 +82,18 @@ namespace CaiderBackend.Authentication.form
         // với method logout chỉ đơn giản là logout ko có LinQ hay gì nên ko xử lý bất đồng bộ
         public static void LogoutApi(this WebApplication app)
         {
-            app.MapPost("/api/auth/logout", (HttpContext httpContext) =>
+            app.MapPost("/api/auth/logout", (HttpContext httpContext, IWebHostEnvironment env) =>
             {
-                httpContext.Response.Cookies.Delete("access_token");
+                var isDev = env.IsDevelopment();
+
+                // options khớp chính xác với lúc append
+                httpContext.Response.Cookies.Delete("access_token", new CookieOptions
+                {
+                    HttpOnly = true,
+                    Secure = !isDev,
+                    SameSite = isDev ? SameSiteMode.Lax : SameSiteMode.None,
+                    Path = "/"
+                });
                 // logout xóa cookie vì token đag gửi kèm trong nó, tức trình duyệt bây h ko lưu cookie này nữa
                 return Results.Ok(new
                 {
