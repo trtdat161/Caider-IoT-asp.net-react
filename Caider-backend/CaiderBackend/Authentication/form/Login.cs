@@ -84,15 +84,8 @@ namespace CaiderBackend.Authentication.form
         {
             app.MapPost("/api/auth/logout", (HttpContext httpContext) =>
             {
-                var deleteCookie = httpContext.Response.Cookies.Delete("access_token");
+                httpContext.Response.Cookies.Delete("access_token");
                 // logout xóa cookie vì token đag gửi kèm trong nó, tức trình duyệt bây h ko lưu cookie này nữa
-                if (!deleteCookie)
-                {
-                    return badRequest(new
-                    {
-                        message = "LOGOUT_FAILED"
-                    });
-                }
                 return Results.Ok(new
                 {
                     message = "LOGOUT_SUCCESS"
