@@ -61,19 +61,7 @@
 
 import { Navigate } from "react-router-dom";
 
-// Helper đọc cookie theo tên
-function getCookie(name) {
-  const match = document.cookie.match(new RegExp("(^| )" + name + "=([^;]+)"));
-  return match ? match[2] : null;
-}
-
 export function ProtectedRoute({ children }) {
-  const isLoggedIn = getCookie("is_logged_in");
-  console.log("=== ProtectedRoute ===");
-  console.log("document.cookie:", document.cookie);
-  console.log("is_logged_in value:", isLoggedIn);
-  console.log("isLoggedIn === true:", isLoggedIn === "true");
-
-  // Đọc cookie local — không gọi API, không sợ server ngủ
-  return isLoggedIn === "true" ? children : <Navigate to="/login" replace />;
+  const isAuth = sessionStorage.getItem("auth") === "1";
+  return isAuth ? children : <Navigate to="/login" replace />;
 }

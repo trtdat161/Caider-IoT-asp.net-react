@@ -104,14 +104,15 @@ export function Dashboard() {
   const Logout = async () => {
     try {
       const response = await axios.post(`${API_URL}/api/auth/logout`);
-      const result = response.data;
-      console.log("message: " + result.message);
-      if (result) navigate("/login", { replace: true });
+      console.log("message: " + response.data.message);
     } catch (error) {
-      setMessage({ text: `Lỗi khi logout: ${error.message}`, type: "error" });
+      console.log("logout api error:", error.message);
+      // kệ — vẫn phải logout ở client
+    } finally {
+      sessionStorage.removeItem("auth"); // ✅ luôn chạy dù API lỗi hay không
+      navigate("/login", { replace: true });
     }
   };
-
   useEffect(() => {
     data();
   }, []);
