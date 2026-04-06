@@ -20,7 +20,7 @@ namespace CaiderBackend.Services
             try
             {
                 var messageBuilder = new MqttClientOptionsBuilder()
-                    .WithTcpServer(broker, port) // Kết nối ĐẾN broker.hivemq.com:1883 tại địa chỉ này
+                    .WithTcpServer(broker, port) // Kết nối ĐẾN broker.hivemq.com:1883
                     .WithClientId($"AspNetCore_{Guid.NewGuid()}")
                     .WithCleanSession();
 

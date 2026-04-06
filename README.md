@@ -28,4 +28,4 @@ Caider is a web application designed to control and manage the Caider robot hard
 ## Demo Video
 
 Watch the full project demo:
-[YouTube Demo](https://www.youtube.com/watch?v=Fhyi5ZbmBuc)
+[YouTube Demo](https://www.youtube.com/watch?v=1dqWcqqI9gc)

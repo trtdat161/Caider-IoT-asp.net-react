@@ -60,16 +60,15 @@ namespace CaiderBackend.Authentication.form
                 // ================ trả về token(dạng thô json) =================
 
                 var token = jwt.GenerateToken();
-                var isDev = app.Environment.IsDevelopment();
+                var isDev = app.Environment.IsDevelopment();// check môi trường (development = true, production = false) dùng để config local vs deploy
                 // dùng cookie để lưu token
                 httpContext.Response.Cookies.Append("access_token", token, new CookieOptions
                 {
                     HttpOnly = true,// Trình duyệt cấm JavaScript đọc cookie này, Nếu false Hacker nhúng script lạ vào, chạy document.cookie là lấy được token
-                    Secure = !isDev, 
-                    SameSite = isDev ? SameSiteMode.Lax : SameSiteMode.None,// Có tác dụng: Chống tấn công **CSRF** (Cross-Site Request Forgery) CSRF : Hacker tạo 1 trang web giả, dụ click vào -> trang đó tự gửi request đến BE của admin kèm cookie -> BE tưởng là admin gửi
-                    //Expires = DateTimeOffset.UtcNow.AddMinutes(60) // Cookie **tự xóa** sau 10 phút
+                    Secure = !isDev, // nếu true thì chỉ cho qua https còn false cho qua http luôn
+                    SameSite = isDev ? SameSiteMode.Lax : SameSiteMode.None,// để là none do khi triển khai thì khác domain nên là none nhưng vs điều kiện là secure = true nếu ko trình duyệt sẽ chặn
                     Expires = DateTimeOffset.UtcNow.AddMinutes(jwtOptions.DurationInMinutes), // dùng config
-                    Path = "/"
+                    Path = "/" // cookie này áp dụng cho toàn bộ site
                 });
 
                 return Results.Ok(new
